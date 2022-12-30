@@ -13,6 +13,7 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 .clock{
     
@@ -22,7 +23,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    padding: 3em;
+    padding: 7em 3em;
+    
 }
 
 .timerNumber{
@@ -47,7 +49,12 @@ button{
     border-radius: 20px;
     cursor: pointer;
     
+    
 }
+
+button:hover {
+    transform: scale(1.2);
+  }
 
 .glass{
     position: absolute;
@@ -56,5 +63,6 @@ button{
     width: 100%;
     height: 100%;
     z-index: 100;
-    backdrop-filter: blur(0.7px)
+    backdrop-filter: blur(0.7px);
+    pointer-events: none;
 }
