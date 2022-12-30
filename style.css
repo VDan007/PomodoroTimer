@@ -35,6 +35,8 @@
     margin-bottom: 1.5em;
     border-radius: 20px;
     padding: 1em 2.5em;
+   
+    
 }
 
 button{
@@ -45,4 +47,14 @@ button{
     border-radius: 20px;
     cursor: pointer;
     
+}
+
+.glass{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    backdrop-filter: blur(0.7px)
 }
