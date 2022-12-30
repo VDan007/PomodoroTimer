@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg,#12664f,#5eb1bf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.clock{
+    width: 40%;
+    height: 35%;
+    box-shadow: 1px 1px 3px red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timerNumber{
+    width: 50%;
+    height: 25%;
+    box-shadow: 1px 1px 3px red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    margin-bottom: 1.5em;
+}
+
+button{
+    padding: 0.5em 3em;
+    border: none;
+    background-color: inherit;
+    box-shadow: 1px 1px 3px red;
+    cursor: pointer;
+    
+}
