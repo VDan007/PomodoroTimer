@@ -85,10 +85,30 @@ button:hover {
     cursor: pointer;
 }
 
-svg{
+.settingsIcon{
     fill: black;
     background: #5eb1bf;
     width: 1em;
     height: auto;
     
 }
+
+
+.taskList{
+    margin-bottom: 1em;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.taskList li {
+    margin-bottom: 0.5em;
+
+}
+
+.taskList li:hover{
+    transform: scale(1.1);
+}
+
