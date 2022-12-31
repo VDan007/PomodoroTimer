@@ -7,6 +7,7 @@
 }
 
 .hero{
+    position: relative;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(45deg,#12664f,#5eb1bf);
@@ -27,6 +28,8 @@
     padding: 1em 0.5em;
     
 }
+
+
 
 .timerNumber{
     
@@ -58,6 +61,8 @@ button:hover {
     transform: scale(1.2);
   }
 
+
+
 .glass{
     position: absolute;
     top: 0;
@@ -67,4 +72,21 @@ button:hover {
     z-index: 100;
     backdrop-filter: blur(0.7px);
     pointer-events: none;
+}
+
+
+.settings{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    cursor: pointer;
+}
+
+svg{
+    fill: black;
+    background: #5eb1bf;
+    width: 1em;
+    height: auto;
+    
 }
