@@ -155,3 +155,15 @@ button:hover {
     
     
 }
+
+.progressBar{
+    width: 100%;
+    height: 3px;
+    box-shadow: 1px 1px 3px red;
+    border-radius: 20px;
+}
+.currentStatus{
+    height: 100%;
+    width: 20%;
+    background-color: rgba(255,0,0,0.7);
+}
