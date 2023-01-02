@@ -1,5 +1,5 @@
 let timeDisplay = document.querySelector(".timerNumber");
-let pomodoroTime = 25;
+let pomodoro = 25;
 let shortBrake = 5;
 let longBrake = 15;
 let secPassed = 0;
@@ -10,10 +10,14 @@ let areWeCounting = false;
 let currentPeriod = "pomodoro";
 
 const startButton = document.getElementById("start");
+startButton.addEventListener("click",startStopTimer);
+
 const pomodoroButton = document.getElementById("pomodoroBtn");
+pomodoroButton.addEventListener("click",() => periodShift("pomodoro"));
+
 const shortBrakeButton = document.getElementById("shortBrakeBtn");
 const longBrakeButton = document.getElementById("longBrakeBtn");
-startButton.addEventListener("click",startStopTimer);
+
 
 
 function startStopTimer(){
@@ -23,7 +27,7 @@ function startStopTimer(){
         areWeCounting = false;
 
     }else{ 
-     interval = setInterval( update, 1000,pomodoroTime);
+     interval = setInterval( update, 1000,pomodoro);
      startButton.innerText = "Pause";
      areWeCounting = true;
     }
@@ -46,4 +50,10 @@ function update (period){
     }
 }
 
-
+function periodShift(period){
+    clearInterval(interval);
+    currentPeriod = period;
+    areWeCounting = false;
+    timeDisplay.innerText = `${pomodoro}:00`;
+    console.log('works');
+}
