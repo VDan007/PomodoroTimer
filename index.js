@@ -12,7 +12,7 @@ function update (){
     minutesLeft =  Math.floor(  (startingTimeInSec - secPassed) / 60 );
     secondsLeft = startingTimeInSec -(minutesLeft * 60) -secPassed ;
     timeDisplay.innerText = " ";
-    timeDisplay.innerText = `${minutesLeft}:${secondsLeft}`;
+    timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     
     
 }
