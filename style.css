@@ -9,11 +9,11 @@
 .hero{
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(45deg,#12664f,#5eb1bf);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     
     
