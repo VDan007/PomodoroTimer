@@ -13,10 +13,12 @@ function update (){
     secondsLeft = startingTimeInSec -(minutesLeft * 60) -secPassed ;
     timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
-    
-    
+    document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
+    if (secondsLeft <= 0) {
+        clearInterval(interval);
+    }
 }
 
 
 
-const interval = setInterval( update, 1000);
+let interval = setInterval( update, 1000);
