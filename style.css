@@ -9,7 +9,7 @@
 .hero{
     position: relative;
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     background: linear-gradient(45deg,#12664f,#5eb1bf);
     display: flex;
     flex-direction: column;
@@ -44,14 +44,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 6rem;
-    
+    font-size: 6em;
+    min-width: 280px;
     border-radius: 20px;
     text-shadow:  1px 1px 3px red;
    
    
     
 }
+
 
 button{
     padding: 0.5rem 3rem;
