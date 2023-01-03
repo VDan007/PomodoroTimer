@@ -14,16 +14,32 @@ const startButton = document.getElementById("start");
 startButton.addEventListener("click",startStopTimer);
 
 const pomodoroButton = document.getElementById("pomodoroBtn");
+pomodoroButton.addEventListener("click",(e) => classListModifier(e));
 pomodoroButton.addEventListener("click",() => periodShift("pomodoro"));
 
 const shortBrakeButton = document.getElementById("shortBrakeBtn");
+shortBrakeButton.addEventListener("click",(e) => classListModifier(e));
 shortBrakeButton.addEventListener("click",() => periodShift("shortBrake"));
 
+
 const longBrakeButton = document.getElementById("longBrakeBtn");
+longBrakeButton.addEventListener("click",(e) => classListModifier(e));
 longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 
 
+/////////////////css logic///////////////////////////
 
+function classListModifier(e){
+    e.preventDefault();
+   const periodBtns =  document.querySelectorAll(".periodBtn");
+   periodBtns.forEach(el => el.classList.remove("currentPeriod"));
+   e.target.classList.add("currentPeriod");
+}
+
+/////////////////css logic///////////////////////////
+
+
+////////////////////////////////timer logic///////////////////////////
 function startStopTimer(){
     if(areWeCounting){
         clearInterval(interval);
@@ -31,7 +47,7 @@ function startStopTimer(){
         areWeCounting = false;
 
     }else{ 
-     interval = setInterval( update, 1000);
+     interval = setInterval( moveTimer, 1000);
      startButton.innerText = "Pause";
      areWeCounting = true;
     }
@@ -41,7 +57,7 @@ function startStopTimer(){
 
 
 
-function update (){
+function moveTimer (){
 
    secPassed++;
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
@@ -85,3 +101,5 @@ function periodShift(period){
 }
 
 setTimer(currentPeriod);
+
+////////////////////////////////timer logic///////////////////////////
