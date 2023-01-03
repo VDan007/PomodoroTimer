@@ -50,10 +50,31 @@ function update (period){
     }
 }
 
+function setTimer(period){
+    let TimeInSec;
+    console.log(period);
+    if(period == "pomodoro"){
+         TimeInSec = pomodoro * 60;
+    }else if (period == "shortBrake"){
+         TimeInSec = shortBrake * 60;
+    }else {
+        TimeInSec = longBrake * 60;
+    }
+        
+    
+   // let TimeInSec = period * 60;
+    minutesLeft =  Math.floor(  (TimeInSec - secPassed) / 60 );
+    secondsLeft = TimeInSec -(minutesLeft * 60) -secPassed ;
+    timeDisplay.innerText = " ";
+    timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
+}
+
 function periodShift(period){
     clearInterval(interval);
     currentPeriod = period;
     areWeCounting = false;
-    timeDisplay.innerText = `${pomodoro}:00`;
-    console.log('works');
+    secPassed = 0;
+    setTimer(currentPeriod);
+    
+    
 }
