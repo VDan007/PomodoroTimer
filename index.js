@@ -5,6 +5,7 @@ let longBrake = 15;
 let secPassed = 0;
 let minutesLeft ;
 let secondsLeft;
+let timeInSec;
 let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
@@ -16,7 +17,10 @@ const pomodoroButton = document.getElementById("pomodoroBtn");
 pomodoroButton.addEventListener("click",() => periodShift("pomodoro"));
 
 const shortBrakeButton = document.getElementById("shortBrakeBtn");
+shortBrakeButton.addEventListener("click",() => periodShift("shortBrake"));
+
 const longBrakeButton = document.getElementById("longBrakeBtn");
+longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 
 
 
@@ -27,7 +31,7 @@ function startStopTimer(){
         areWeCounting = false;
 
     }else{ 
-     interval = setInterval( update, 1000,pomodoro);
+     interval = setInterval( update, 1000);
      startButton.innerText = "Pause";
      areWeCounting = true;
     }
@@ -37,12 +41,15 @@ function startStopTimer(){
 
 
 
-function update (period){
-    let TimeInSec = period * 60;
+function update (){
+
+   secPassed++;
+   minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
+    secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
+   timeDisplay.innerText = " ";
+
+    
     secPassed++;
-    minutesLeft =  Math.floor(  (TimeInSec - secPassed) / 60 );
-    secondsLeft = TimeInSec -(minutesLeft * 60) -secPassed ;
-    timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
@@ -51,20 +58,18 @@ function update (period){
 }
 
 function setTimer(period){
-    let TimeInSec;
+    
     console.log(period);
     if(period == "pomodoro"){
-         TimeInSec = pomodoro * 60;
+         timeInSec = pomodoro * 60;
     }else if (period == "shortBrake"){
-         TimeInSec = shortBrake * 60;
+         timeInSec = shortBrake * 60;
     }else {
-        TimeInSec = longBrake * 60;
+        timeInSec = longBrake * 60;
     }
-        
     
-   // let TimeInSec = period * 60;
-    minutesLeft =  Math.floor(  (TimeInSec - secPassed) / 60 );
-    secondsLeft = TimeInSec -(minutesLeft * 60) -secPassed ;
+    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
+    secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
     timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
 }
@@ -78,3 +83,5 @@ function periodShift(period){
     
     
 }
+
+setTimer(currentPeriod);
