@@ -6,6 +6,10 @@
     
 }
 
+body{
+    background: linear-gradient(45deg,#12664f,#5eb1bf);
+}
+
 .hero{
     position: relative;
     width: 100vw;
