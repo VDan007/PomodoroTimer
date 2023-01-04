@@ -197,12 +197,29 @@ button:hover {
     height: 2em;
     width: 70%;
     text-align: center;
-    border-radius: 20px;
-    box-shadow: none;
+    box-shadow: 1px 1px 3px red;
+    border-radius: 10px;
     border: none;
     appearance: none;
+    color: black;
+    background: inherit;
+    
     
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(0, 0, 0, 0.6);
+  }
+
 
 input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button { 
