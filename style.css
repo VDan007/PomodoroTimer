@@ -176,6 +176,7 @@ button:hover {
     width: 101%;
     height: 130%;
     backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
     box-shadow: 1px 1px 3px red;
     border-radius: 20px;
     display: flex;
