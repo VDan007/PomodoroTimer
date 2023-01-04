@@ -87,6 +87,7 @@ button:hover {
     height: 100%;
     z-index: 100;
     backdrop-filter: blur(0.7px);
+    -webkit-backdrop-filter: blur(0.7px);
     pointer-events: none;
 }
 
