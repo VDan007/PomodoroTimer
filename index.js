@@ -1,5 +1,7 @@
 let timeDisplay = document.querySelector(".timerNumber");
 let pomodoro = 25;
+let pomodoroCounter = 0;
+const longBrakeTime = 4;
 let shortBrake = 5;
 let longBrake = 15;
 let secPassed = 0;
@@ -9,34 +11,42 @@ let timeInSec;
 let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
+let autoSwitch = true;
 
 const startButton = document.getElementById("start");
 startButton.addEventListener("click",startStopTimer);
 
 const pomodoroButton = document.getElementById("pomodoroBtn");
-pomodoroButton.addEventListener("click",(e) => classListModifier(e));
+//pomodoroButton.addEventListener("click",(e) => classListModifier(e));
 pomodoroButton.addEventListener("click",() => periodShift("pomodoro"));
 
 const shortBrakeButton = document.getElementById("shortBrakeBtn");
-shortBrakeButton.addEventListener("click",(e) => classListModifier(e));
+//shortBrakeButton.addEventListener("click",(e) => classListModifier(e));
 shortBrakeButton.addEventListener("click",() => periodShift("shortBrake"));
 
 
 const longBrakeButton = document.getElementById("longBrakeBtn");
-longBrakeButton.addEventListener("click",(e) => classListModifier(e));
+//longBrakeButton.addEventListener("click",(e) => classListModifier(e));
 longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 
 
-/////////////////css logic///////////////////////////
 
-function classListModifier(e){
-    e.preventDefault();
-   const periodBtns =  document.querySelectorAll(".periodBtn");
-   periodBtns.forEach(el => el.classList.remove("currentPeriod"));
-   e.target.classList.add("currentPeriod");
+
+
+
+function periodButtonSwitch(){
+    const periodBtns =  document.querySelectorAll(".periodBtn");
+    periodBtns.forEach(el => el.classList.remove("currentPeriod"));
+    if(currentPeriod == "pomodoro"){
+        pomodoroButton.classList.add("currentPeriod");
+    }else if (currentPeriod == "shortBrake"){
+        shortBrakeButton.classList.add("currentPeriod");
+    }else {
+        longBrakeButton.classList.add("currentPeriod");
+    }
 }
 
-/////////////////css logic///////////////////////////
+
 
 
 ////////////////////////////////timer logic///////////////////////////
@@ -45,7 +55,7 @@ function startStopTimer(){
         clearInterval(interval);
         startButton.innerText = "Start";
         areWeCounting = false;
-
+        
     }else{ 
      interval = setInterval( moveTimer, 1000);
      startButton.innerText = "Pause";
@@ -63,13 +73,23 @@ function moveTimer (){
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
     secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
    timeDisplay.innerText = " ";
-
-    
-    secPassed++;
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
+        if(currentPeriod == "pomodoro"){
+            pomodoroCounter++;
+            console.log(pomodoroCounter);
+        }
         clearInterval(interval);
+        if(autoSwitch && longBrakeTime > pomodoroCounter ){
+            
+            currentPeriod == "pomodoro" ? periodShift("shortBrake") : periodShift("pomodoro");
+        } else{
+            periodShift("longBrake");
+            pomodoroCounter = 0;
+        }
+
+        
     }
 }
 
@@ -96,11 +116,18 @@ function periodShift(period){
     areWeCounting = false;
     secPassed = 0;
     setTimer(currentPeriod);
+    periodButtonSwitch();
+    if(autoSwitch){
+        startStopTimer();
+    }
     
     
 }
 
 setTimer(currentPeriod);
+
+
+
 
 ////////////////////////////////timer logic///////////////////////////
 
