@@ -107,7 +107,10 @@ setTimer(currentPeriod);
 
 ////////////////////////////taskList logic///////////////////////////////
 const addTaskBtn = document.getElementById("addTaskBtn");
+const taskNameInput = document.getElementById("taskNameInput");
+const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
 const taskSettingsDiv = document.getElementById("taskSettings");
+const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const taskList = document.getElementById("taskList");
 
@@ -150,12 +153,20 @@ function createTask(){
 
 }
 
+taskSaveBtn.addEventListener('click',() => {
+    createTask();
+    
+
+});
+
 taskCancelBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.add('hideClass');
+    addTaskBtn.classList.remove('hideClass');
  })
 
 addTaskBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.remove('hideClass');
+    addTaskBtn.classList.add('hideClass');
 })
 
 ////////////////////////////taskList logic///////////////////////////////
