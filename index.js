@@ -122,10 +122,32 @@ function createTask(){
     checkIcon.setAttribute('viewBox','0 0 512 512');
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
+    const liLeftText = document.createElement('p');
+    liLeftText.textContent = "here goes a taskName jhbadhjasd hjbashjda";
+    const liRight = document.createElement('div');
+    liRight.classList.add('liRight');
+    const liRightSpan = document.createElement('span');
+    liRightSpan.textContent = "0/1";
+    const taskSettingsIcon = document.createElementNS(svgHttp,'svg');
+    taskSettingsIcon.classList.add('taskOptionsIcon');
+    taskSettingsIcon.setAttribute('viewBox','0 0 128 512');
+    const path02 = document.createElementNS(svgHttp,'path');
+    path02.setAttribute('d','M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z');
+    
+
     checkIcon.appendChild(path01);
     liLeft.appendChild(checkIcon);
+    liLeft.appendChild(liLeftText);
     task.appendChild(liLeft);
+   
+    taskSettingsIcon.appendChild(path02);
+    liRight.appendChild(liRightSpan);
+    liRight.appendChild(taskSettingsIcon);
+    task.appendChild(liRight);
+
     taskList.appendChild(task);
+
+
 }
 
 taskCancelBtn.addEventListener('click',()=> {
