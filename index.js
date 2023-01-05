@@ -136,7 +136,7 @@ function createTask(name, number){
     
     task.classList.add('taskLi');
     task.setAttribute('draggable', 'true');
-    task.addEventListener('dragstart',drag);
+    task.addEventListener('dragstart',handleDragStart);
     const liLeft = document.createElement('div');
     liLeft.classList.add('liLeft');
     const checkIcon = document.createElementNS(svgHttp,'svg');
@@ -181,7 +181,9 @@ function createTask(name, number){
 }
 
 taskSaveBtn.addEventListener('click',() => {
+    
     createTask(taskNameInput.value,taskPomodoroNumberInput.value);
+    readyDrag();
     
 
 });
@@ -198,25 +200,57 @@ addTaskBtn.addEventListener('click',()=> {
 
 
 ////////////////////////////drag & drop ///////////////////////////////
-function drag(e){ 
+function readyDrag(){ 
 
-    const task = e.target;
-    handleDragStart();
-    task.addEventListener('dragend',handleDragEnd);
+    const allTasks = document.querySelectorAll('.taskLi');
+    allTasks.forEach( (item) =>{
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
+    } )
+
+    
+}   
+    
 
 
-function handleDragStart() {
-    task.style.opacity = '0.4';
+function handleDragStart(e) {
+    this.style.opacity = '0.4';
     console.log('dragstart')
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
   }
   
   function handleDragEnd(e) {
-    task.style.opacity = '1';
+    this.style.opacity = '1';
     console.log('dragend')
   }
   
-  
-}
+  function handleDragOver(e) {
+    e.preventDefault();
+    return false;
+  }
+
+  function handleDragEnter(e) {
+    this.classList.add('over');
+  }
+
+  function handleDragLeave(e) {
+    this.classList.remove('over');
+  }
+  function handleDrop(e) {
+    e.stopPropagation(); 
+    if (dragSrcEl !== this) {
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
+      }
+    return false;
+  }
 
 
 ////////////////////////////drag & drop ///////////////////////////////

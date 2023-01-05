@@ -297,3 +297,6 @@ input[type="number"]::-webkit-outer-spin-button {
     opacity: 0.5;
     
 }
+.over{
+    border: 1px dotted red;
+}
