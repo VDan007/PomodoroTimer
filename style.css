@@ -155,14 +155,14 @@ button:hover {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 0.5em;
+    gap: 1em;
  }
 
  .liRight{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 1em;
+    gap: 1.5em;
  }
 
 
