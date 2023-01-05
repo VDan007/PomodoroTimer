@@ -249,6 +249,7 @@ function handleDragStart(e) {
         dragSrcEl.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
+      this.classList.remove('over');
     return false;
   }
 
