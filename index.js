@@ -106,7 +106,16 @@ setTimer(currentPeriod);
 
 
 ////////////////////////////taskList logic///////////////////////////////
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskSettingsDiv = document.getElementById("taskSettings");
+const taskCancelBtn =document.getElementById("taskCancelBtn");
 
+taskCancelBtn.addEventListener('click',()=> {
+    taskSettingsDiv.classList.add('hideClass');
+ })
 
+addTaskBtn.addEventListener('click',()=> {
+    taskSettingsDiv.classList.remove('hideClass');
+})
 
 ////////////////////////////taskList logic///////////////////////////////

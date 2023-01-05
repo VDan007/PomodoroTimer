@@ -12,6 +12,8 @@ body{
     
 }
 
+
+
 .hero{
     position: relative;
     width: 100vw;
@@ -248,3 +250,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /********************** progressBar **********************/
+
+
+
+.hideClass{
+    display: none;
+}
