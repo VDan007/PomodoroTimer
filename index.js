@@ -172,8 +172,8 @@ function createTask(name, number){
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
 
-    tasksArray.push({"taskName" : name,
-                    "numberOfPomodoros" : number })
+    tasksArray.push({taskName : name,
+                    numberOfPomodoros : number })
 
     }
 
@@ -250,9 +250,31 @@ function handleDragStart(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
       this.classList.remove('over');
+      console.log(taskList.children[0]);
     return false;
   }
 
+  function rearrangeTasksArray (){
+    const newOrder = [];
+    for(let i = 0;i <taskList.children.length; i++){
+        newOrder.push(taskList.children[i].innerText.match(/^[^\n]+/));
+
+    }
+   // console.log(newOrder[0][0].toString());
+
+    let tasksArray02 = [];
+
+    for(let a = 0; a < newOrder.length; a++){
+        for(let y = 0; y < tasksArray.length; y ++){
+            if(newOrder[a][0] == tasksArray[y].taskName){
+                tasksArray02.push(tasksArray[y]);
+            }
+        }
+    }
+    console.log(tasksArray);
+    console.log(tasksArray02);
+
+  }
 
 ////////////////////////////drag & drop ///////////////////////////////
 
