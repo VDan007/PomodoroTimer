@@ -114,7 +114,13 @@ const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const taskList = document.getElementById("taskList");
 
-function createTask(){
+function createTask(name, number){
+
+    if(name ){ 
+        if (!number){
+            number = 1;
+        }
+
     const svgHttp = 'http://www.w3.org/2000/svg';
 
     const task = document.createElement('li');
@@ -126,11 +132,11 @@ function createTask(){
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
     const liLeftText = document.createElement('p');
-    liLeftText.textContent = "here goes a taskName jhbadhjasd hjbashjda";
+    liLeftText.textContent = name;
     const liRight = document.createElement('div');
     liRight.classList.add('liRight');
     const liRightSpan = document.createElement('span');
-    liRightSpan.textContent = "0/1";
+    liRightSpan.textContent = `0/${number}`;
     const taskSettingsIcon = document.createElementNS(svgHttp,'svg');
     taskSettingsIcon.classList.add('taskOptionsIcon');
     taskSettingsIcon.setAttribute('viewBox','0 0 128 512');
@@ -150,11 +156,16 @@ function createTask(){
 
     taskList.appendChild(task);
 
+    taskNameInput.value = '';
+    taskPomodoroNumberInput.value = '';
+
+    }
+
 
 }
 
 taskSaveBtn.addEventListener('click',() => {
-    createTask();
+    createTask(taskNameInput.value,taskPomodoroNumberInput.value);
     
 
 });
