@@ -105,13 +105,16 @@ setTimer(currentPeriod);
 ////////////////////////////////timer logic///////////////////////////
 
 
+
+
+
+
+
+
+
 ////////////////////////////taskList logic///////////////////////////////
 
 const tasksArray = [];
-
-
-
-
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
 const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
@@ -130,6 +133,10 @@ function createTask(name, number){
     const svgHttp = 'http://www.w3.org/2000/svg';
 
     const task = document.createElement('li');
+    
+    task.classList.add('taskLi');
+    task.setAttribute('draggable', 'true');
+    task.addEventListener('dragstart',drag);
     const liLeft = document.createElement('div');
     liLeft.classList.add('liLeft');
     const checkIcon = document.createElementNS(svgHttp,'svg');
@@ -188,5 +195,33 @@ addTaskBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.remove('hideClass');
     addTaskBtn.classList.add('hideClass');
 })
+
+
+////////////////////////////drag & drop ///////////////////////////////
+function drag(e){ 
+
+    const task = e.target;
+    handleDragStart();
+    task.addEventListener('dragend',handleDragEnd);
+
+
+function handleDragStart() {
+    task.style.opacity = '0.4';
+    console.log('dragstart')
+  }
+  
+  function handleDragEnd(e) {
+    task.style.opacity = '1';
+    console.log('dragend')
+  }
+  
+  
+}
+
+
+////////////////////////////drag & drop ///////////////////////////////
+
+
+
 
 ////////////////////////////taskList logic///////////////////////////////
