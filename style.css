@@ -192,7 +192,7 @@ button:hover {
     z-index: 900;
     width: 101%;
     
-    min-height: 25vh;
+    min-height: 20vh;
     max-height: 300px;
 
     backdrop-filter: blur(7px);

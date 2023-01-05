@@ -106,6 +106,12 @@ setTimer(currentPeriod);
 
 
 ////////////////////////////taskList logic///////////////////////////////
+
+const tasksArray = [];
+
+
+
+
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
 const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
@@ -158,6 +164,9 @@ function createTask(name, number){
 
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
+
+    tasksArray.push({"taskName" : name,
+                    "numberOfPomodoros" : number })
 
     }
 
