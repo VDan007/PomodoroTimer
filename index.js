@@ -12,6 +12,7 @@ let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
 let autoSwitch = true;
+let deliberetlyStarted = false;
 
 const startButton = document.getElementById("start");
 startButton.addEventListener("click",startStopTimer);
@@ -36,6 +37,7 @@ longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 
 function periodButtonSwitch(){
     const periodBtns =  document.querySelectorAll(".periodBtn");
+    periodBtns.forEach(el => el.addEventListener('click',() => {deliberetlyStarted = false;}))
     periodBtns.forEach(el => el.classList.remove("currentPeriod"));
     if(currentPeriod == "pomodoro"){
         pomodoroButton.classList.add("currentPeriod");
@@ -55,11 +57,13 @@ function startStopTimer(){
         clearInterval(interval);
         startButton.innerText = "Start";
         areWeCounting = false;
+        deliberetlyStarted = false;
         
     }else{ 
      interval = setInterval( moveTimer, 1000);
      startButton.innerText = "Pause";
      areWeCounting = true;
+     deliberetlyStarted = true;
     }
 
      
@@ -117,7 +121,7 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
-    if(autoSwitch){
+    if(autoSwitch && deliberetlyStarted){
         startStopTimer();
     }
     
