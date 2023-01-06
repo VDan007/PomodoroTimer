@@ -173,6 +173,7 @@ function createTask(name, number,done){
     liLeft.classList.add('liLeft');
     const checkIcon = document.createElementNS(svgHttp,'svg');
     checkIcon.classList.add('taskOptionsIcon');
+    checkIcon.classList.add('checkIcon');
     checkIcon.setAttribute('viewBox','0 0 512 512');
     checkIcon.addEventListener("click",findingTask)/////////////////////here////////////
     const path01 = document.createElementNS(svgHttp,'path');
@@ -236,8 +237,8 @@ addTaskBtn.addEventListener('click',()=> {
 
 function findingTask(e){
     let indexOFTask;
-    let taskLi = e.target.closest('div');    
-    console.log("work");
+    let taskLi = e.target.closest('li');    
+    console.log(taskLi);
 }
 
 ////////////////////////////drag & drop ///////////////////////////////
@@ -291,7 +292,7 @@ function handleDragStart(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
       this.classList.remove('over');
-      console.log(taskList.children[0]);
+      
     return false;
   }
 
@@ -314,6 +315,14 @@ function handleDragStart(e) {
     }
     console.log(tasksArray);
     console.log(tasksArray02);
+
+  }
+
+  function eventListenerAdder(){
+    ////drag&drop takes them///////
+        document.querySelectorAll(".checkIcon").forEach(
+            el => el.addEventListener("click", findingTask)
+        );
 
   }
 
