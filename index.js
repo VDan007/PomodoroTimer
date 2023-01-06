@@ -236,8 +236,8 @@ addTaskBtn.addEventListener('click',()=> {
 
 function findingTask(e){
     let indexOFTask;
-    let taskLi = e.target.closest('li');    
-    console.log(taskLi);
+    let taskLi = e.target.closest('div');    
+    console.log("work");
 }
 
 ////////////////////////////drag & drop ///////////////////////////////
