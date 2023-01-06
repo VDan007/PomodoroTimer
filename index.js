@@ -154,11 +154,12 @@ const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const taskList = document.getElementById("taskList");
 
-function createTask(name, number){
+function createTask(name, number,done){
 
     if(name ){ 
-        if (!number){
+        if (!number || !done){
             number = 1;
+            done = 0;
         }
 
     const svgHttp = 'http://www.w3.org/2000/svg';
@@ -173,6 +174,7 @@ function createTask(name, number){
     const checkIcon = document.createElementNS(svgHttp,'svg');
     checkIcon.classList.add('taskOptionsIcon');
     checkIcon.setAttribute('viewBox','0 0 512 512');
+    checkIcon.addEventListener("click",findingTask)/////////////////////here////////////
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
     const liLeftText = document.createElement('p');
@@ -180,7 +182,7 @@ function createTask(name, number){
     const liRight = document.createElement('div');
     liRight.classList.add('liRight');
     const liRightSpan = document.createElement('span');
-    liRightSpan.textContent = `0/${number}`;
+    liRightSpan.textContent = `${done}/${number}`;
     const taskSettingsIcon = document.createElementNS(svgHttp,'svg');
     taskSettingsIcon.classList.add('taskOptionsIcon');
     taskSettingsIcon.setAttribute('viewBox','0 0 128 512');
@@ -204,17 +206,19 @@ function createTask(name, number){
     taskPomodoroNumberInput.value = '';
 
     tasksArray.push({taskName : name,
-                    numberOfPomodoros : number })
+                    numberOfPomodoros : number ,
+                    numberOfCompletedPomodoros: done,
+                    })
 
     }
 
-
+    readyDrag();
 }
 
 taskSaveBtn.addEventListener('click',() => {
     
     createTask(taskNameInput.value,taskPomodoroNumberInput.value);
-    readyDrag();
+    
     
 
 });
@@ -229,6 +233,14 @@ addTaskBtn.addEventListener('click',()=> {
     addTaskBtn.classList.add('hideClass');
 })
 
+
+function findingTask(e){
+    let parent = e.target.parentElement.parentElement.parentElement;
+    let child = e.target.parentElement.parentElement;
+    let index = Array.from(parent.children).indexOf(child);
+    console.log(e.target.parentElement.parentElement.parentElement);
+    console.log(index);
+}
 
 ////////////////////////////drag & drop ///////////////////////////////
 function readyDrag(){ 
@@ -313,3 +325,12 @@ function handleDragStart(e) {
 
 
 ////////////////////////////taskList logic///////////////////////////////
+
+
+function test(){
+    createTask("alma");
+    createTask("vacsi",9,1);
+    createTask("almafa",2,1);
+
+
+}
