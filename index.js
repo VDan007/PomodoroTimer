@@ -145,7 +145,7 @@ setTimer(currentPeriod);
 
 ////////////////////////////taskList logic///////////////////////////////
 
-const tasksArray = [];
+let tasksArray = [];
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
 const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
@@ -293,6 +293,7 @@ function handleDragStart(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
       this.classList.remove('over');
+      rearrangeTasksArray();
       eventListenerAdder();
     return false;
   }
@@ -314,8 +315,7 @@ function handleDragStart(e) {
             }
         }
     }
-    console.log(tasksArray);
-    console.log(tasksArray02);
+    tasksArray = tasksArray02;
 
   }
 
