@@ -169,8 +169,11 @@ function updateTask(index, pomodoros, donePomodoros){
 function createTask(name, number,done){
 
     if(name ){ 
-        if (!number || !done){
+        if (!number && !done){
             number = 1;
+            done = 0;
+        }
+        else if (!done) {
             done = 0;
         }
 
@@ -187,7 +190,7 @@ function createTask(name, number,done){
     checkIcon.classList.add('taskOptionsIcon');
     checkIcon.classList.add('checkIcon');
     checkIcon.setAttribute('viewBox','0 0 512 512');
-    checkIcon.addEventListener("click",checkTask)/////////////////////here////////////
+    checkIcon.addEventListener("click",checkTask)
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
     const liLeftText = document.createElement('p');
@@ -198,6 +201,7 @@ function createTask(name, number,done){
     liRightSpan.textContent = `${done}/${number}`;
     const taskSettingsIcon = document.createElementNS(svgHttp,'svg');
     taskSettingsIcon.classList.add('taskOptionsIcon');
+    taskSettingsIcon.classList.add('taskSettingsIcon');
     taskSettingsIcon.setAttribute('viewBox','0 0 128 512');
     const path02 = document.createElementNS(svgHttp,'path');
     path02.setAttribute('d','M64 360c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zm0-160c30.9 0 56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56zM120 96c0 30.9-25.1 56-56 56S8 126.9 8 96S33.1 40 64 40s56 25.1 56 56z');
@@ -209,6 +213,7 @@ function createTask(name, number,done){
     task.appendChild(liLeft);
    
     taskSettingsIcon.appendChild(path02);
+    taskSettingsIcon.addEventListener('click',modifyTask) //////////here//////////
     liRight.appendChild(liRightSpan);
     liRight.appendChild(taskSettingsIcon);
     task.appendChild(liRight);
@@ -224,6 +229,8 @@ function createTask(name, number,done){
                     })
 
     }
+
+
 
     readyDrag();
 }
@@ -338,6 +345,10 @@ function handleDragStart(e) {
             el => {el.addEventListener("click", checkTask); }
         );
 
+        document.querySelectorAll(".taskSettingsIcon").forEach(
+            el => {el.addEventListener("click", modifyTask); }
+        );
+
   }
 
   function checkTask(e){
@@ -346,6 +357,10 @@ function handleDragStart(e) {
     updateTask(index,pomodoros,pomodoros);
 
     
+  }
+
+  function modifyTask(e){
+    taskSettingsDiv.classList.remove('hideClass');
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
