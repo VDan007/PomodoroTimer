@@ -154,6 +154,12 @@ const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const taskList = document.getElementById("taskList");
 
+function updateTask(index, pomodoros, donePomodoros){
+    let allTasks = taskList.children;
+    let taskToBeUpdated = allTasks[index];
+    taskToBeUpdated.childNodes[1].childNodes[0].innerText = `${donePomodoros}/${pomodoros}`;
+}
+
 function createTask(name, number,done){
 
     if(name ){ 
