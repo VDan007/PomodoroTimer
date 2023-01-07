@@ -156,8 +156,10 @@ const taskList = document.getElementById("taskList");
 
 function updateTask(index, pomodoros, donePomodoros){
     let allTasks = taskList.children;
+    //console.log(allTasks);
     let taskToBeUpdated = allTasks[index];
-    taskToBeUpdated.childNodes[1].childNodes[0].innerText = `${donePomodoros}/${pomodoros}`;
+    console.log(taskToBeUpdated);
+    taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
 }
 
 function createTask(name, number,done){
@@ -336,7 +338,8 @@ function handleDragStart(e) {
 
   function checkTask(e){
     const index = findingTask(e)
-    tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfPomodoros;
+    const pomodoros = tasksArray[index].numberOfPomodoros;
+    updateTask(index,pomodoros,pomodoros);
     
   }
 
