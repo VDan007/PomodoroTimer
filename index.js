@@ -175,7 +175,7 @@ function createTask(name, number,done){
     checkIcon.classList.add('taskOptionsIcon');
     checkIcon.classList.add('checkIcon');
     checkIcon.setAttribute('viewBox','0 0 512 512');
-    checkIcon.addEventListener("click",findingTask)/////////////////////here////////////
+    checkIcon.addEventListener("click",checkTask)/////////////////////here////////////
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
     const liLeftText = document.createElement('p');
@@ -238,8 +238,9 @@ addTaskBtn.addEventListener('click',()=> {
 function findingTask(e){
     let allTasks = taskList.children;
     let taskLi = e.target.closest('li');    
-    let indexOFTask = Array.from(allTasks).indexOf(taskLi);
-    console.log(indexOFTask);
+    let indexOfTask = Array.from(allTasks).indexOf(taskLi);
+    console.log("console" + indexOfTask);
+    return indexOfTask;
 }
 
 ////////////////////////////drag & drop ///////////////////////////////
@@ -322,9 +323,15 @@ function handleDragStart(e) {
   function eventListenerAdder(){
     ////drag&drop takes them///////
         document.querySelectorAll(".checkIcon").forEach(
-            el => el.addEventListener("click", findingTask)
+            el => {el.addEventListener("click", checkTask); }
         );
 
+  }
+
+  function checkTask(e){
+    const index = findingTask(e)
+    tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfPomodoros;
+    
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
