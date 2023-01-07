@@ -160,6 +160,10 @@ function updateTask(index, pomodoros, donePomodoros){
     let taskToBeUpdated = allTasks[index];
     console.log(taskToBeUpdated);
     taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
+    if(pomodoros == donePomodoros){
+        taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
+        taskToBeUpdated.querySelector(".liLeft").classList.add("done");
+    }
 }
 
 function createTask(name, number,done){
@@ -340,6 +344,7 @@ function handleDragStart(e) {
     const index = findingTask(e)
     const pomodoros = tasksArray[index].numberOfPomodoros;
     updateTask(index,pomodoros,pomodoros);
+
     
   }
 

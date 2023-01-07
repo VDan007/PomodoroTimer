@@ -159,6 +159,10 @@ button:hover {
 
 }
 
+.done{
+    text-decoration: line-through;
+}
+
  .liLeft{
     display: flex;
     flex-wrap: nowrap;
