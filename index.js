@@ -236,9 +236,10 @@ addTaskBtn.addEventListener('click',()=> {
 
 
 function findingTask(e){
-    let indexOFTask;
+    let allTasks = taskList.children;
     let taskLi = e.target.closest('li');    
-    console.log(taskLi);
+    let indexOFTask = Array.from(allTasks).indexOf(taskLi);
+    console.log(indexOFTask);
 }
 
 ////////////////////////////drag & drop ///////////////////////////////
@@ -292,7 +293,7 @@ function handleDragStart(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
       this.classList.remove('over');
-      
+      eventListenerAdder();
     return false;
   }
 
