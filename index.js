@@ -1,9 +1,9 @@
 let timeDisplay = document.querySelector(".timerNumber");
-let pomodoro = 25;
+let pomodoro = 0.1;
 let pomodoroCounter = 0;
 const longBrakeTime = 4;
-let shortBrake = 5;
-let longBrake = 15;
+let shortBrake = 0.1;
+let longBrake = 0.1;
 let secPassed = 0;
 let minutesLeft ;
 let secondsLeft;
@@ -121,6 +121,12 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
+    if(period == "shortBrake" || period == "longBrake" && !tasksArray == [] ){
+        let index = 0;
+       // if(tasksArray[index].numberOfPomodoros == tasksArray[index].numberOfCompletedPomodoros)
+       // tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfCompletedPomodoros + 1;
+     //   updateTask(index,tasksArray[index].numberOfPomodoros, tasksArray[index].numberOfCompletedPomodoros);
+    }
     if(autoSwitch && deliberetlyStarted){
         startStopTimer();
     }
@@ -163,6 +169,14 @@ function updateTask(index, pomodoros, donePomodoros){
     if(pomodoros == donePomodoros){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
         taskToBeUpdated.querySelector(".liLeft").classList.add("done");
+        createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
+        taskToBeUpdated.remove();
+        console.log("tasksArray before" + tasksArray);
+        const removedTask = tasksArray.shift();
+        console.log("tasksArray afterShift" + tasksArray);
+        tasksArray.push(removedTask);
+        console.log("tasksArray afterpush" + tasksArray);
+        
     }
 }
 
@@ -185,6 +199,9 @@ function createTask(name, number,done){
     task.setAttribute('draggable', 'true');
     task.addEventListener('dragstart',handleDragStart);
     const liLeft = document.createElement('div');
+    if(number == done){
+        liLeft.classList.add("done");
+    }
     liLeft.classList.add('liLeft');
     const checkIcon = document.createElementNS(svgHttp,'svg');
     checkIcon.classList.add('taskOptionsIcon');
@@ -230,7 +247,7 @@ function createTask(name, number,done){
 
     }
 
-
+    
 
     readyDrag();
 }
