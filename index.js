@@ -121,12 +121,11 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
-    if(period == "shortBrake" || period == "longBrake" && !tasksArray == [] ){
-        let index = 0;
-       // if(tasksArray[index].numberOfPomodoros == tasksArray[index].numberOfCompletedPomodoros)
-       // tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfCompletedPomodoros + 1;
-     //   updateTask(index,tasksArray[index].numberOfPomodoros, tasksArray[index].numberOfCompletedPomodoros);
+    if(period == "shortBrake" || period == "longBrake" && !tasksArray == []){
+        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros + 1);
     }
+     
+    
     if(autoSwitch && deliberetlyStarted){
         startStopTimer();
     }
@@ -164,19 +163,26 @@ function updateTask(index, pomodoros, donePomodoros){
     let allTasks = taskList.children;
     //console.log(allTasks);
     let taskToBeUpdated = allTasks[index];
-    console.log(taskToBeUpdated);
+    
     taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
     if(pomodoros == donePomodoros){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
         taskToBeUpdated.querySelector(".liLeft").classList.add("done");
         createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
         taskToBeUpdated.remove();
-        console.log("tasksArray before" + tasksArray);
+       // console.log("tasksArray before" + tasksArray);
         const removedTask = tasksArray.shift();
-        console.log("tasksArray afterShift" + tasksArray);
+      //  console.log("tasksArray afterShift" + tasksArray);
         tasksArray.push(removedTask);
-        console.log("tasksArray afterpush" + tasksArray);
+      //  console.log("tasksArray afterpush" + tasksArray);
         
+    }else{
+       // console.log('tasks to be updated:' + taskToBeUpdated);
+        taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span').textContent =
+        `${donePomodoros}/${pomodoros}`;
+       // console.log('tasks to be updated:' + taskToBeUpdated.getElementsByTagName("span").innerText);
+      //  taskToBeUpdated.getElementsByTagName("span")[0].textContent = `${donePomodoros}/${pomodoros}`;
+       tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfCompletedPomodoros +1;
     }
 }
 
