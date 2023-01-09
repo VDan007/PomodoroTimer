@@ -175,6 +175,8 @@ function updateTask(index, pomodoros, donePomodoros,options){
       //  console.log("tasksArray afterShift" + tasksArray);
         tasksArray.push(removedTask);
       //  console.log("tasksArray afterpush" + tasksArray);
+      
+    }else if (options){
         
     }else if (!options){
        // console.log('tasks to be updated:' + taskToBeUpdated);
@@ -273,6 +275,9 @@ taskCancelBtn.addEventListener('click',()=> {
 
 addTaskBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.remove('hideClass');
+    taskNameInput.value = '';
+    taskPomodoroNumberInput.value = '';
+
     addTaskBtn.classList.add('hideClass');
 })
 
@@ -383,7 +388,10 @@ function handleDragStart(e) {
   }
 
   function modifyTask(e){
+    const task = findingTask(e);
     taskSettingsDiv.classList.remove('hideClass');
+    taskNameInput.value = tasksArray[task].taskName;
+    taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
