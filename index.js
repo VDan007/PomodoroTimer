@@ -159,13 +159,13 @@ const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const taskList = document.getElementById("taskList");
 
-function updateTask(index, pomodoros, donePomodoros){
+function updateTask(index, pomodoros, donePomodoros,options){
     let allTasks = taskList.children;
     //console.log(allTasks);
     let taskToBeUpdated = allTasks[index];
     
     taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
-    if(pomodoros == donePomodoros){
+    if(pomodoros == donePomodoros && !options){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
         taskToBeUpdated.querySelector(".liLeft").classList.add("done");
         createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
@@ -176,7 +176,7 @@ function updateTask(index, pomodoros, donePomodoros){
         tasksArray.push(removedTask);
       //  console.log("tasksArray afterpush" + tasksArray);
         
-    }else{
+    }else if (!options){
        // console.log('tasks to be updated:' + taskToBeUpdated);
         taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span').textContent =
         `${donePomodoros}/${pomodoros}`;
