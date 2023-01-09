@@ -286,7 +286,6 @@ function findingTask(e){
     let allTasks = taskList.children;
     let taskLi = e.target.closest('li');    
     let indexOfTask = Array.from(allTasks).indexOf(taskLi);
-    console.log("console" + indexOfTask);
     return indexOfTask;
 }
 
@@ -404,7 +403,7 @@ function handleDragStart(e) {
 
 function test(){
     createTask("alma");
-    createTask("vacsi",9,1);
+    createTask("vacsi",3,1);
     createTask("almafa",2,1);
 
 

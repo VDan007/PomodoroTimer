@@ -192,14 +192,16 @@ button:hover {
     min-width: 1em;
     min-height: 1em;
     cursor: pointer;
+    transition: all 0.7s;
+    transform-origin: 50% 50%;
    
     
     
 }
 
 .taskOptionsIcon:hover{
-    transform: scale(1.1);
-    border: 1px solid red;
+    transform: scale(1.4);
+    
 }
 
 .taskSettings{
@@ -229,7 +231,15 @@ button:hover {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    padding: 0.3em;
     
+}
+
+.taskSettingsBtnDiv02{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1em 1em 0 ;
 }
 
 .taskSettingsBtnDiv button {
