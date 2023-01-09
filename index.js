@@ -157,6 +157,7 @@ const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput
 const taskSettingsDiv = document.getElementById("taskSettings");
 const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
+const trash = document.getElementById("trash");
 const taskList = document.getElementById("taskList");
 
 function updateTask(index, pomodoros, donePomodoros,options){
@@ -260,15 +261,18 @@ function createTask(name, number,done){
     readyDrag();
 }
 
-taskSaveBtn.addEventListener('click',() => {
-    
+function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value);
-    
-    
+}
 
-});
+taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
 
 taskCancelBtn.addEventListener('click',()=> {
+    taskSettingsDiv.classList.add('hideClass');
+    addTaskBtn.classList.remove('hideClass');
+ })
+
+ trash.addEventListener('click',()=> {
     taskSettingsDiv.classList.add('hideClass');
     addTaskBtn.classList.remove('hideClass');
  })
@@ -391,6 +395,8 @@ function handleDragStart(e) {
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = tasksArray[task].taskName;
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
+    taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
+    taskSaveBtn.addEventListener('click',()=>{console.log("hi");})
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
