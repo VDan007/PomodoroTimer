@@ -82,9 +82,10 @@ function moveTimer (){
     if (secondsLeft <= 0) {
         if(currentPeriod == "pomodoro"){
             pomodoroCounter++;
-            console.log(pomodoroCounter);
+            
         }
         clearInterval(interval);
+        console.log('stop Here sound');
         if(autoSwitch && longBrakeTime > pomodoroCounter ){
             
             currentPeriod == "pomodoro" ? periodShift("shortBrake") : periodShift("pomodoro");
@@ -121,8 +122,10 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
-    if(period == "shortBrake" || period == "longBrake" && !tasksArray == []){
+    if(period == "shortBrake" && tasksArray.length != 0 || period == "longBrake" && tasksArray.length != 0){
+        
         updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
+        
     }
      
     
