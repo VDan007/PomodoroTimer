@@ -122,7 +122,7 @@ function periodShift(period){
     setTimer(currentPeriod);
     periodButtonSwitch();
     if(period == "shortBrake" || period == "longBrake" && !tasksArray == []){
-        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros +1);
+        updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
     }
      
     
@@ -213,7 +213,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
 }
 
 function createTask(name, number,done){
-
+    if(name){ 
     
         if (!number && !done){
             number = 1;
@@ -270,9 +270,9 @@ function createTask(name, number,done){
 
     taskList.appendChild(task);
 
-    taskNameInput.value = '';
-    taskPomodoroNumberInput.value = '';
-    taskDonePomodoroNumberInput.value = '';
+    taskNameInput.value = 0;
+    taskPomodoroNumberInput.value = 0;
+    taskDonePomodoroNumberInput.value = 0;
 
     tasksArray.push({taskName : name,
                     numberOfPomodoros : number ,
@@ -284,6 +284,7 @@ function createTask(name, number,done){
     
 
     readyDrag();
+                }
 }
 
 function createTaskOnSaveBtn(){
