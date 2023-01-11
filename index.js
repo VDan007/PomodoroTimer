@@ -164,17 +164,26 @@ function updateTask(index, pomodoros, donePomodoros,options){
     let allTasks = taskList.children;
     //console.log(allTasks);
     let taskToBeUpdated = allTasks[index];
+
+    function moveToEnd(){
+        taskToBeUpdated.querySelector(".liLeft").classList.add("done")
+        createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
+        console.log(index);
+        taskToBeUpdated.remove();
+        const removedTask = tasksArray.splice(index,1);
+       // tasksArray.push(removedTask);
+    }
     
     taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
     if(pomodoros == donePomodoros && !options){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
-        taskToBeUpdated.querySelector(".liLeft").classList.add("done");
-        createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
-        taskToBeUpdated.remove();
+        moveToEnd();
+       // createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
+      //  taskToBeUpdated.remove();
        // console.log("tasksArray before" + tasksArray);
-        const removedTask = tasksArray.shift();
+      //  const removedTask = tasksArray.shift();
       //  console.log("tasksArray afterShift" + tasksArray);
-        tasksArray.push(removedTask);
+     //   tasksArray.push(removedTask);
       //  console.log("tasksArray afterpush" + tasksArray);
       
     }else if (options){
