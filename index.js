@@ -122,7 +122,7 @@ function periodShift(period){
     setTimer(currentPeriod);
     periodButtonSwitch();
     if(period == "shortBrake" || period == "longBrake" && !tasksArray == []){
-        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros + 1,false);
+        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros +1);
     }
      
     
@@ -195,14 +195,15 @@ function updateTask(index, pomodoros, donePomodoros,options){
 
         
     }else if (!options){
-        console.log("loooooolll");
+        console.log('yeash');
+        // console.log('tasks to be updated:' + taskToBeUpdated.getElementsByTagName("span").innerText);
+        //  taskToBeUpdated.getElementsByTagName("span")[0].textContent = `${donePomodoros}/${pomodoros}`;
+         
+        taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
+        
+        tasksArray[index].numberOfCompletedPomodoros = donePomodoros ;
         console.log(tasksArray);
-        console.log(  taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span'));
-        taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span').textContent =
-        `${donePomodoros}/${pomodoros}`;
-       // console.log('tasks to be updated:' + taskToBeUpdated.getElementsByTagName("span").innerText);
-      //  taskToBeUpdated.getElementsByTagName("span")[0].textContent = `${donePomodoros}/${pomodoros}`;
-       tasksArray[index].numberOfCompletedPomodoros = tasksArray[index].numberOfCompletedPomodoros +1;
+        
     }
 }
 
