@@ -122,7 +122,7 @@ function periodShift(period){
     setTimer(currentPeriod);
     periodButtonSwitch();
     if(period == "shortBrake" || period == "longBrake" && !tasksArray == []){
-        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros + 1);
+        updateTask(0,tasksArray[0].numberOfPomodoros,tasksArray[0].numberOfCompletedPomodoros + 1,false);
     }
      
     
@@ -171,11 +171,11 @@ function updateTask(index, pomodoros, donePomodoros,options){
         createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
         console.log(index);
         taskToBeUpdated.remove();
-        const removedTask = tasksArray.splice(index,1);
+        tasksArray.splice(index,1);
        
     }
     
-    taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
+    
     if(pomodoros == donePomodoros && !options){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
         moveToEnd();
@@ -188,9 +188,16 @@ function updateTask(index, pomodoros, donePomodoros,options){
       //  console.log("tasksArray afterpush" + tasksArray);
       
     }else if (options){
+        taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
+        tasksArray[index].taskName = taskNameInput.value;
+        tasksArray[index].numberOfPomodoros = taskPomodoroNumberInput.value;
+        tasksArray[index].numberOfCompletedPomodoros = taskDonePomodoroNumberInput.value;
+
         
     }else if (!options){
-       // console.log('tasks to be updated:' + taskToBeUpdated);
+        console.log("loooooolll");
+        console.log(tasksArray);
+        console.log(  taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span'));
         taskToBeUpdated.getElementsByClassName('liRight')[0].getElementsByTagName('span').textContent =
         `${donePomodoros}/${pomodoros}`;
        // console.log('tasks to be updated:' + taskToBeUpdated.getElementsByTagName("span").innerText);
@@ -276,8 +283,8 @@ function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
 }
 
-function updateTaskOnSaveBtn(){
-
+function updateTaskOnSaveBtn(index){
+    updateTask(index,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true);
 }
 
 taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
@@ -410,8 +417,9 @@ function handleDragStart(e) {
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = tasksArray[task].taskName;
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
+    taskDonePomodoroNumberInput.value = tasksArray[task].numberOfCompletedPomodoros;
     taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
-    taskSaveBtn.addEventListener('click',updateTaskOnSaveBtn)
+    taskSaveBtn.addEventListener('click',()=>{updateTaskOnSaveBtn(task)})
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
