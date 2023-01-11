@@ -154,6 +154,7 @@ let tasksArray = [];
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
 const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
+const taskDonePomodoroNumberInput = document.getElementById("taskDonePomodoroNumberInput");
 const taskSettingsDiv = document.getElementById("taskSettings");
 const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
@@ -171,7 +172,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
         console.log(index);
         taskToBeUpdated.remove();
         const removedTask = tasksArray.splice(index,1);
-       // tasksArray.push(removedTask);
+       
     }
     
     taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
@@ -200,7 +201,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
 
 function createTask(name, number,done){
 
-    if(name ){ 
+    
         if (!number && !done){
             number = 1;
             done = 0;
@@ -257,13 +258,14 @@ function createTask(name, number,done){
 
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
+    taskDonePomodoroNumberInput.value = '';
 
     tasksArray.push({taskName : name,
                     numberOfPomodoros : number ,
                     numberOfCompletedPomodoros: done,
                     })
 
-    }
+    
 
     
 
@@ -271,7 +273,11 @@ function createTask(name, number,done){
 }
 
 function createTaskOnSaveBtn(){
-    createTask(taskNameInput.value,taskPomodoroNumberInput.value);
+    createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
+}
+
+function updateTaskOnSaveBtn(){
+
 }
 
 taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
@@ -405,7 +411,7 @@ function handleDragStart(e) {
     taskNameInput.value = tasksArray[task].taskName;
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
     taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
-    taskSaveBtn.addEventListener('click',()=>{console.log("hi");})
+    taskSaveBtn.addEventListener('click',updateTaskOnSaveBtn)
   }
 
 ////////////////////////////drag & drop ///////////////////////////////

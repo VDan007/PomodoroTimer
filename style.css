@@ -228,6 +228,7 @@ button:hover {
     align-items: center;
     gap: 1em;
     padding-top: 2em;
+    transition:  2s ease-in-out;
 }
 
 .taskSettingsBtnDiv{
