@@ -154,6 +154,7 @@ setTimer(currentPeriod);
 ////////////////////////////taskList logic///////////////////////////////
 
 let tasksArray = [];
+let allPomodoros = 0;
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
 const taskPomodoroNumberInput = document.getElementById("taskPomodoroNumberInput");
@@ -163,6 +164,8 @@ const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
 const trash = document.getElementById("trash");
 const taskList = document.getElementById("taskList");
+const progressbar = document.querySelector(".progressBar");
+const progress = document.querySelector(".currentStatus");
 
 function updateTask(index, pomodoros, donePomodoros,options){
     let allTasks = taskList.children;
@@ -273,9 +276,9 @@ function createTask(name, number,done){
 
     taskList.appendChild(task);
 
-    taskNameInput.value = 0;
-    taskPomodoroNumberInput.value = 0;
-    taskDonePomodoroNumberInput.value = 0;
+    taskNameInput.value = "";
+    taskPomodoroNumberInput.value = "";
+    taskDonePomodoroNumberInput.value = "";
 
     tasksArray.push({taskName : name,
                     numberOfPomodoros : number ,
@@ -452,6 +455,35 @@ function handleDragStart(e) {
 
 
 ////////////////////////////taskList logic///////////////////////////////
+
+////////////////////////////progress bar///////////////////////////////
+
+function countPomodoros (){
+    let pomodoros = 0;
+    let pomodorosDone = 0;
+   
+    if(tasksArray.length != 0){
+        progressbar.classList.remove("hideClass");
+    
+        for (let i = 0; i < tasksArray.length; i++){ 
+        pomodoros +=  parseInt(tasksArray[i].numberOfPomodoros);
+        pomodorosDone += parseInt(tasksArray[i].numberOfCompletedPomodoros);
+        }
+        console.log("pomodoros: " + pomodoros);
+        console.log("pomodorosDone: " + pomodorosDone);
+        let percentage = pomodorosDone/pomodoros *100;
+        progress.style.width = `${percentage}%`;
+    }else{
+        progressbar.classList.add("hideClass");
+    }
+
+    
+   
+}
+
+
+////////////////////////////progress bar///////////////////////////////
+
 
 
 function test(){
