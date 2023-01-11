@@ -176,7 +176,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
     }
     
     
-    if(pomodoros == donePomodoros && !options){
+    if(pomodoros == donePomodoros ){
         taskToBeUpdated.querySelector(".liLeft").classList.contains("done") ? taskToBeUpdated.querySelector(".liLeft").classList.remove("done") : 
         moveToEnd();
        // createTask(tasksArray[index].taskName,pomodoros,donePomodoros);
@@ -188,11 +188,15 @@ function updateTask(index, pomodoros, donePomodoros,options){
       //  console.log("tasksArray afterpush" + tasksArray);
       
     }else if (options){
-        taskToBeUpdated.querySelector(".liLeft").querySelector(".liLeftText").innerText = taskNameInput.value;
+        console.log('whith oprtions run');
+       // taskToBeUpdated.querySelector(".liLeft").querySelector(".liLeftText").innerText = taskNameInput.value;
         taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
-        tasksArray[index].taskName = taskNameInput.value;
-        tasksArray[index].numberOfPomodoros = taskPomodoroNumberInput.value;
-        tasksArray[index].numberOfCompletedPomodoros = taskDonePomodoroNumberInput.value;
+        //tasksArray[index].taskName = ;
+        tasksArray[index].numberOfPomodoros = pomodoros;
+        tasksArray[index].numberOfCompletedPomodoros = donePomodoros;
+        
+        
+        console.log(tasksArray);
 
         
     }else if (!options){
@@ -284,20 +288,12 @@ function createTask(name, number,done){
 
 function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
+    addTaskBtn.classList.remove('hideClass');
 }
 
-function updateTaskOnSaveBtn(index){
-    updateTask(index,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true);
-    taskSettingsDiv.classList.add('hideClass');
-    taskSaveBtn.removeEventListener('click',updateTaskOnSaveBtn);
-    taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
-    taskNameInput.value = "";
-    taskPomodoroNumberInput.value = "";
-    taskDonePomodoroNumberInput.value = "";
 
-}
 
-taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
+//taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
 
 taskCancelBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.add('hideClass');
@@ -313,7 +309,11 @@ addTaskBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
-
+    taskDonePomodoroNumberInput.value = '';
+    taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
+    if( taskSaveBtn.removeEventListener('click',updateTask)){ 
+    taskSaveBtn.removeEventListener('click',updateTask);
+    }
     addTaskBtn.classList.add('hideClass');
 })
 
@@ -421,15 +421,24 @@ function handleDragStart(e) {
 
     
   }
-
+  
+ 
   function modifyTask(e){
+
+    
     const task = findingTask(e);
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = tasksArray[task].taskName;
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
     taskDonePomodoroNumberInput.value = tasksArray[task].numberOfCompletedPomodoros;
     taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
-    taskSaveBtn.addEventListener('click',()=>{updateTaskOnSaveBtn(task)});
+
+ 
+
+     taskSaveBtn.addEventListener('click',()=>{updateTask(task,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true)},{once: true});
+    
+    
+    
     
   }
 
