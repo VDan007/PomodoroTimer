@@ -188,6 +188,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
       //  console.log("tasksArray afterpush" + tasksArray);
       
     }else if (options){
+        taskToBeUpdated.querySelector(".liLeft").querySelector(".liLeftText").innerText = taskNameInput.value;
         taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
         tasksArray[index].taskName = taskNameInput.value;
         tasksArray[index].numberOfPomodoros = taskPomodoroNumberInput.value;
@@ -195,14 +196,14 @@ function updateTask(index, pomodoros, donePomodoros,options){
 
         
     }else if (!options){
-        console.log('yeash');
+        
         // console.log('tasks to be updated:' + taskToBeUpdated.getElementsByTagName("span").innerText);
         //  taskToBeUpdated.getElementsByTagName("span")[0].textContent = `${donePomodoros}/${pomodoros}`;
          
         taskToBeUpdated.querySelector(".liRight").querySelector("span").innerText = `${donePomodoros}/${pomodoros}`;
         
         tasksArray[index].numberOfCompletedPomodoros = donePomodoros ;
-        console.log(tasksArray);
+      
         
     }
 }
@@ -238,6 +239,7 @@ function createTask(name, number,done){
     const path01 = document.createElementNS(svgHttp,'path');
     path01.setAttribute('d','M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z');
     const liLeftText = document.createElement('p');
+    liLeftText.classList.add("liLeftText");
     liLeftText.textContent = name;
     const liRight = document.createElement('div');
     liRight.classList.add('liRight');
@@ -286,6 +288,13 @@ function createTaskOnSaveBtn(){
 
 function updateTaskOnSaveBtn(index){
     updateTask(index,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true);
+    taskSettingsDiv.classList.add('hideClass');
+    taskSaveBtn.removeEventListener('click',updateTaskOnSaveBtn);
+    taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
+    taskNameInput.value = "";
+    taskPomodoroNumberInput.value = "";
+    taskDonePomodoroNumberInput.value = "";
+
 }
 
 taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
@@ -420,7 +429,8 @@ function handleDragStart(e) {
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
     taskDonePomodoroNumberInput.value = tasksArray[task].numberOfCompletedPomodoros;
     taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
-    taskSaveBtn.addEventListener('click',()=>{updateTaskOnSaveBtn(task)})
+    taskSaveBtn.addEventListener('click',()=>{updateTaskOnSaveBtn(task)});
+    
   }
 
 ////////////////////////////drag & drop ///////////////////////////////
