@@ -216,6 +216,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
       
         
     }
+    countPomodoros()
 }
 
 function createTask(name, number,done){
@@ -287,7 +288,7 @@ function createTask(name, number,done){
 
     
 
-    
+    countPomodoros();
 
     readyDrag();
                 }
@@ -472,6 +473,9 @@ function countPomodoros (){
         console.log("pomodoros: " + pomodoros);
         console.log("pomodorosDone: " + pomodorosDone);
         let percentage = pomodorosDone/pomodoros *100;
+        if(percentage > 100){
+            percentage = 100;
+        }
         progress.style.width = `${percentage}%`;
     }else{
         progressbar.classList.add("hideClass");
