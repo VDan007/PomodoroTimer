@@ -11,7 +11,7 @@ let timeInSec;
 let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
-let autoSwitch = false;
+let autoSwitch = true;
 let deliberetlyStarted = false;
 let tasksArray = [];
 let done = false;
@@ -82,7 +82,7 @@ function moveTimer (){
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
-        if(autoSwitch){
+        if(autoSwitch && !done){
             if(currentPeriod == "pomodoro"){
                 pomodoroCounter++;
             }
@@ -93,9 +93,14 @@ function moveTimer (){
                 periodShift("longBrake");
                 pomodoroCounter = 0;
             }
-
+           
 
         }
+        else if(autoSwitch && done){
+            startStopTimer();
+            updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
+
+        } 
         else{
             startStopTimer();
             
