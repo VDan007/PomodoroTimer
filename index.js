@@ -465,6 +465,8 @@ function handleDragStart(e) {
 
   }
 
+  ////////////////////////////drag & drop ///////////////////////////////
+
   function checkTask(e){
     const index = findingTask(e)
     const pomodoros = tasksArray[index].numberOfPomodoros;
@@ -498,7 +500,22 @@ function handleDragStart(e) {
     
   }
 
-////////////////////////////drag & drop ///////////////////////////////
+  function putUnfinishedTaskFirst(){
+   
+    
+    while(tasksArray[0].numberOfPomodoros == tasksArray[0].numberOfCompletedPomodoros){
+        let removed = tasksArray.splice(0,1);
+            
+            tasksArray.splice(tasksArray.length,0,removed[0]);
+
+            taskList.appendChild(taskList.children[0]);
+    }
+
+  }
+
+  
+
+
 
 
 
@@ -525,8 +542,12 @@ function countPomodoros (){
             percentage = 100;
         }
         progress.style.width = `${percentage}%`;
+        
         if(pomodoros  == pomodorosDone){
             done = true;
+        }
+        if(!done){
+            putUnfinishedTaskFirst();
         }
     }else{
         progressbar.classList.add("hideClass");
