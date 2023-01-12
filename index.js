@@ -82,9 +82,16 @@ function moveTimer (){
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
-        if(autoSwitch && !done){
+        if(autoSwitch ){
             if(currentPeriod == "pomodoro"){
                 pomodoroCounter++;
+                if(tasksArray.length != 0){ 
+                updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
+                    if(done){
+                        startStopTimer();
+                    }
+                }
+
             }
             if(longBrakeTime > pomodoroCounter ){
             
@@ -96,11 +103,7 @@ function moveTimer (){
            
 
         }
-        else if(autoSwitch && done){
-            startStopTimer();
-            updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
-
-        } 
+       
         else{
             startStopTimer();
             
@@ -151,11 +154,7 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
-    if(autoSwitch && period == "shortBrake" && tasksArray.length != 0 || period == "longBrake" && tasksArray.length != 0 && autoSwitch){
-        
-        updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
-        
-    }
+    
      
     
     if(autoSwitch && deliberetlyStarted){
@@ -330,6 +329,8 @@ function deleteTask(index){
     taskToBeUpdated.remove();
     tasksArray.splice(index,1);
     trashBtn.addEventListener('click',trashBtnClick);
+    taskSettingsDiv.classList.add('hideClass');
+    countPomodoros();
 }
 
 function createTaskOnSaveBtn(){
@@ -520,7 +521,7 @@ function countPomodoros (){
             percentage = 100;
         }
         progress.style.width = `${percentage}%`;
-        if(pomodoros -1 == pomodorosDone){
+        if(pomodoros  == pomodorosDone){
             done = true;
         }
     }else{
