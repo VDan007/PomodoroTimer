@@ -6,8 +6,16 @@
     
 }
 
+:root{
+    --bgColor : linear-gradient(45deg,#12664f,#5eb1bf);
+}
+
+html{
+    background: var(--bgColor);
+}
+
 body{
-    background: linear-gradient(45deg,#12664f,#5eb1bf); 
+    background: var(--bgColor);
    /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); 
   background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% ); */
     height: 100%;
@@ -31,6 +39,7 @@ body{
 
 .container{
     padding: 04em;
+    z-index: 800;
 }
 .clock{
     
@@ -112,6 +121,7 @@ button:hover {
     box-shadow: -1px -1px 3px #A63A50;
 }
 
+/********************** settings **********************/
 
 .settings{
     position: absolute;
@@ -119,6 +129,20 @@ button:hover {
     right: 0;
     padding: 1em;
     cursor: pointer;
+}
+
+.settingsOpened{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid red;
+    z-index: 900;
+    height: 100vh;
+    width: 100vw;
+    background: var(--bgColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .settingsIcon{
@@ -129,6 +153,28 @@ button:hover {
     cursor: pointer;
     
 }
+
+.settingsContainer{
+    border: 1px solid yellow;
+    max-width: 100vw;
+    font-size: 0.6em;
+}
+
+.timeSettingsDiv{
+    background: blue;
+   
+    display: flex;
+}
+.timeSettingsDivSub{
+    text-align: center;
+    background: brown;
+    
+}
+.timeSettingsDivSub input {
+    max-width: 100%;
+}
+/********************** settings **********************/
+
 /********************** tasks **********************/
 
 .taskList{
