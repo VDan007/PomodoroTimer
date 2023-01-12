@@ -99,15 +99,27 @@ function moveTimer (){
         else{
             startStopTimer();
             
+            startButton.innerText = "Restart";
+            startButton.removeEventListener("click",startStopTimer);
+            startButton.addEventListener("click",reSetTimer);
             if(currentPeriod == "pomodoro" && tasksArray.length != 0){
                 updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
             }
 
-            
+
         }
 
         
     }
+}
+
+function reSetTimer(period){
+    areWeCounting = false;
+    secPassed = 0;
+    setTimer(period);
+    startStopTimer();
+    startButton.removeEventListener("click",reSetTimer);
+    startButton.addEventListener("click",startStopTimer);
 }
 
 function setTimer(period){
