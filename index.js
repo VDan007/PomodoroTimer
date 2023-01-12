@@ -191,7 +191,7 @@ const taskDonePomodoroNumberInput = document.getElementById("taskDonePomodoroNum
 const taskSettingsDiv = document.getElementById("taskSettings");
 const taskSaveBtn = document.getElementById("taskSaveBtn");
 const taskCancelBtn =document.getElementById("taskCancelBtn");
-const trash = document.getElementById("trash");
+const trashBtn = document.getElementById("trash");
 const taskList = document.getElementById("taskList");
 const progressbar = document.querySelector(".progressBar");
 const progress = document.querySelector(".currentStatus");
@@ -323,12 +323,24 @@ function createTask(name, number,done){
                 }
 }
 
+function deleteTask(index){
+    let allTasks = taskList.children;
+    //console.log(allTasks);
+    let taskToBeUpdated = allTasks[index];
+    taskToBeUpdated.remove();
+    tasksArray.splice(index,1);
+    trashBtn.addEventListener('click',trashBtnClick);
+}
+
 function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
     addTaskBtn.classList.remove('hideClass');
 }
 
-
+function trashBtnClick(){
+    taskSettingsDiv.classList.add('hideClass');
+    addTaskBtn.classList.remove('hideClass');
+}
 
 //taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
 
@@ -337,10 +349,7 @@ taskCancelBtn.addEventListener('click',()=> {
     addTaskBtn.classList.remove('hideClass');
  })
 
- trash.addEventListener('click',()=> {
-    taskSettingsDiv.classList.add('hideClass');
-    addTaskBtn.classList.remove('hideClass');
- })
+ trashBtn.addEventListener('click',trashBtnClick);
 
 addTaskBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.remove('hideClass');
@@ -469,6 +478,11 @@ function handleDragStart(e) {
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
     taskDonePomodoroNumberInput.value = tasksArray[task].numberOfCompletedPomodoros;
     taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
+
+    
+    trashBtn.removeEventListener('click',trashBtnClick);
+    trashBtn.addEventListener('click',()=>{deleteTask(task)},{once:true});
+    
 
  
 
