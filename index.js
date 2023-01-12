@@ -89,6 +89,10 @@ function moveTimer (){
                 updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
                     if(done){
                         startStopTimer();
+                        startButton.innerText = "Restart";
+                        startButton.removeEventListener("click",startStopTimer);
+                        startButton.addEventListener("click",reSetTimer);
+                        return;
                     }
                 }
 
