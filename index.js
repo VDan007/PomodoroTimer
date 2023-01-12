@@ -11,8 +11,10 @@ let timeInSec;
 let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
-let autoSwitch = true;
+let autoSwitch = false;
 let deliberetlyStarted = false;
+let tasksArray = [];
+let done = false;
 
 const startButton = document.getElementById("start");
 startButton.addEventListener("click",startStopTimer);
@@ -80,18 +82,28 @@ function moveTimer (){
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
-        if(currentPeriod == "pomodoro"){
-            pomodoroCounter++;
+        if(autoSwitch){
+            if(currentPeriod == "pomodoro"){
+                pomodoroCounter++;
+            }
+            if(longBrakeTime > pomodoroCounter ){
             
+                currentPeriod == "pomodoro" ? periodShift("shortBrake") : periodShift("pomodoro");
+            } else{
+                periodShift("longBrake");
+                pomodoroCounter = 0;
+            }
+
+
         }
-        clearInterval(interval);
-        console.log('stop Here sound');
-        if(autoSwitch && longBrakeTime > pomodoroCounter ){
+        else{
+            startStopTimer();
             
-            currentPeriod == "pomodoro" ? periodShift("shortBrake") : periodShift("pomodoro");
-        } else{
-            periodShift("longBrake");
-            pomodoroCounter = 0;
+            if(currentPeriod == "pomodoro" && tasksArray.length != 0){
+                updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
+            }
+
+            
         }
 
         
@@ -122,7 +134,7 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
-    if(period == "shortBrake" && tasksArray.length != 0 || period == "longBrake" && tasksArray.length != 0){
+    if(autoSwitch && period == "shortBrake" && tasksArray.length != 0 || period == "longBrake" && tasksArray.length != 0 && autoSwitch){
         
         updateTask(0,tasksArray[0].numberOfPomodoros,parseInt(tasksArray[0].numberOfCompletedPomodoros) +1);
         
@@ -153,7 +165,7 @@ setTimer(currentPeriod);
 
 ////////////////////////////taskList logic///////////////////////////////
 
-let tasksArray = [];
+
 let allPomodoros = 0;
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskNameInput = document.getElementById("taskNameInput");
@@ -477,6 +489,9 @@ function countPomodoros (){
             percentage = 100;
         }
         progress.style.width = `${percentage}%`;
+        if(pomodoros -1 == pomodorosDone){
+            done = true;
+        }
     }else{
         progressbar.classList.add("hideClass");
     }
