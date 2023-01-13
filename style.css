@@ -144,6 +144,12 @@ button:hover {
     align-items: center;
 }
 
+#settingsIconDiv{
+    min-height: 20px;
+    min-width: 20px;
+    
+}
+
 .settingsIcon{
     fill: black;
     pointer-events: none;

@@ -19,6 +19,7 @@ const settingsBtn = document.getElementById("settingsIconDiv");
 settingsBtn.addEventListener("click",settingsToggle);
 
 
+
 const startButton = document.getElementById("start");
 startButton.addEventListener("click",startStopTimer);
 
@@ -40,13 +41,14 @@ longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 function settingsToggle(){
     const settingsContainer = document.querySelector(".settingsContainer")
     const settingsDiv = document.getElementById("settingsDiv");
+    console.log("woo");
     
     if(settingsDiv.classList.contains("settings")){
         settingsDiv.classList.remove("settings");
         settingsDiv.classList.add("settingsOpened");
         settingsContainer.classList.remove("hideClass");
     }else{
-        console.log("woo");
+     
         settingsDiv.classList.remove("settingsOpened");
         settingsDiv.classList.add("settings");
         settingsContainer.classList.add("hideClass");
