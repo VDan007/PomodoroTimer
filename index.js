@@ -52,13 +52,16 @@ function settingsToggle(e){
         settingsContainer.style.top = "25px";
         settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true});
         setTimeout(()=>{
-            document.addEventListener("click",(e)=>{
+
+            function outsideClickDetect(e){
                 if( !settingsDiv.contains(e.target)){
                     
                     settingsToggle();
-                    console.log('bad')
+                    document.removeEventListener("click",outsideClickDetect);
                 }
-            },{once:true});
+            }
+
+            document.addEventListener("click",outsideClickDetect);
 
         },100);
         
