@@ -129,7 +129,7 @@ button:hover {
 .settings{
     position: absolute;
     top: 0;
-    right: 150;
+    right: 0;
     padding: 1em;
     cursor: pointer;
 }
