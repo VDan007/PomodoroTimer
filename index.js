@@ -50,8 +50,8 @@ function settingsToggle(e){
         settingsDiv.classList.remove("settings");
         settingsDiv.classList.add("settingsOpened");
         settingsContainer.style.top = "25px";
-      //  settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true});
-        setTimeout(()=>{
+      
+        
 
             function outsideClickDetect(e){
                 if( !settingsDiv.contains(e.target) || e.target == settingContainerClose){
@@ -64,7 +64,7 @@ function settingsToggle(e){
 
             document.addEventListener("click",outsideClickDetect);
 
-        },50);
+        outsideClickDetect(e);
         
         
     }else{
