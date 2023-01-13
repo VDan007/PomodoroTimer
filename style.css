@@ -191,6 +191,15 @@ button:hover {
     justify-content: space-around;
 }
 
+.toggleCheckbox{
+    -webkit-appearance: none;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+    
+}
+
 
 /********************** settings **********************/
 
