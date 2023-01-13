@@ -137,7 +137,6 @@ button:hover {
     right: 0;
     border: 1px solid red;
     z-index: 900;
-    height: 100vh;
     width: 100vw;
     background: var(--bgColor);
     display: flex;
@@ -158,21 +157,33 @@ button:hover {
     border: 1px solid yellow;
     max-width: 100vw;
     font-size: 0.6em;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .timeSettingsDiv{
-    background: blue;
+    
    
     display: flex;
+    justify-content: space-between;
 }
 .timeSettingsDivSub{
     text-align: center;
     background: brown;
+    max-width: 30%;
     
 }
 .timeSettingsDivSub input {
-    max-width: 100%;
+   
 }
+
+.settingsBtnDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+
 /********************** settings **********************/
 
 /********************** tasks **********************/
