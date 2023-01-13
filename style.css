@@ -166,10 +166,24 @@ button:hover {
 .settingsContainer{
     border: 1px solid yellow;
     max-width: 100vw;
-    font-size: 0.6em;
+    
     display: flex;
     flex-direction: column;
+    transition: display 2s ease-in;
+    -webkit-transition: width 2s ease-in;
+    
+}
 
+.settingsContainerHeader{
+    display:flex;
+    justify-content: space-between;
+    padding: 0.5em 0.3em;
+    font-size: 1.3em;
+}
+
+.settingContainerClose{
+    cursor: pointer;
+    transform:rotate(90deg);
 }
 
 .timeSettingsDiv{
@@ -177,18 +191,36 @@ button:hover {
    
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1em;
+    border: 1px solid red;
+    padding: 0.3em;
 }
 .timeSettingsDivSub{
-    text-align: center;
-    background: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 30%;
     
+    
+}
+
+.timeSettingsDivSub input{
+    max-width: 80%;
 }
 
 
 .settingsBtnDiv{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+    border: 1px solid red;
+    padding: 0.3em;
+}
+
+.settingsBtnDivInput{
+    
+    max-width: 20%;
 }
 
 .toggleCheckbox{

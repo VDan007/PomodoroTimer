@@ -17,6 +17,7 @@ let tasksArray = [];
 let done = false;
 const settingsBtn = document.getElementById("settingsIconDiv");
 settingsBtn.addEventListener("click",settingsToggle);
+const settingContainerClose = document.querySelector(".settingContainerClose");
 
 
 
@@ -47,11 +48,14 @@ function settingsToggle(){
         settingsDiv.classList.remove("settings");
         settingsDiv.classList.add("settingsOpened");
         settingsContainer.classList.remove("hideClass");
+        settingsBtn.classList.add("hideClass");
+        settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true})
     }else{
      
         settingsDiv.classList.remove("settingsOpened");
         settingsDiv.classList.add("settings");
         settingsContainer.classList.add("hideClass");
+        settingsBtn.classList.remove("hideClass");
     }
 }
 

@@ -25,7 +25,10 @@
                  
                 </div>
                 <div class="settingsContainer hideClass">
-                    <h3>Settings</h3>
+                    <div class="settingsContainerHeader">
+                         <h3 >Settings</h3>
+                         <span class="settingContainerClose">x</span>
+                     </div>
                     <div class="timeSettingsDiv">
                         <div class="timeSettingsDivSub">
                             <p>Pomodoro</p>
@@ -50,11 +53,11 @@
                     </div>
                     <div class="settingsBtnDiv">
                         <p>Long Break Interval</p>
-                        <input type="number">
+                        <input type="number" class="settingsBtnDivInput">
                     </div>
                     <div class="settingsBtnDiv">
                         <p>Alarm Sound</p>
-                        <input list="sounds" name="sounds">
+                        <input list="sounds" class="settingsBtnDivInput" name="sounds">
                         <datalist id="sounds">
                             <option value="Internet Explorer">
                             <option value="Firefox">
@@ -62,10 +65,10 @@
                             <option value="Opera">
                             <option value="Safari">
                         </datalist>
-                    </div>
-                    <div class="settingsBtnDiv">
+                     </div>
+                     <div class="settingsBtnDiv">
                         <p>Themes</p>
-                        <input list="themes" name="themeSelector">
+                        <input list="themes" class="settingsBtnDivInput" name="themeSelector">
                         <datalist id="themes">
                             <option value="Internet Explorer">
                             <option value="Firefox">
