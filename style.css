@@ -11,7 +11,8 @@
 }
 
 html{
-    background: var(--bgColor);
+    height: 100vh;
+
 }
 
 
