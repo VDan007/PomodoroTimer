@@ -173,8 +173,8 @@ button:hover {
     background: #FAFAFF;
     display: flex;
     flex-direction: column;
-    transition: top 0.3s ease-in;
-    -webkit-transition: top 0.3s ease-in;
+    transition: top 0.2s ease-in;
+    -webkit-transition: top 0.2s ease-in;
     border-radius: 20px;
     
 }
