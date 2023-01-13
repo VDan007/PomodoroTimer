@@ -50,20 +50,21 @@ function settingsToggle(e){
         settingsDiv.classList.remove("settings");
         settingsDiv.classList.add("settingsOpened");
         settingsContainer.style.top = "25px";
-        settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true});
+      //  settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true});
         setTimeout(()=>{
 
             function outsideClickDetect(e){
-                if( !settingsDiv.contains(e.target)){
+                if( !settingsDiv.contains(e.target) || e.target == settingContainerClose){
                     
                     settingsToggle();
                     document.removeEventListener("click",outsideClickDetect);
+                    console.log("once")
                 }
             }
 
             document.addEventListener("click",outsideClickDetect);
 
-        },100);
+        },50);
         
         
     }else{
@@ -76,7 +77,7 @@ function settingsToggle(e){
             settingsDiv.classList.add("settings");
             settingsBtn.classList.remove("hideClass");
             
-        },500);
+        },700);
     }
 }
 
