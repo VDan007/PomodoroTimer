@@ -15,7 +15,7 @@ let autoSwitch = true;
 let deliberetlyStarted = false;
 let tasksArray = [];
 let done = false;
-const settingsBtn = document.querySelector(".settingsIcon");
+const settingsBtn = document.getElementById("settingsIconDiv");
 settingsBtn.addEventListener("click",settingsToggle);
 
 
