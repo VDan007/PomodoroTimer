@@ -53,9 +53,10 @@ function settingsToggle(e){
         settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true});
         setTimeout(()=>{
             document.addEventListener("click",(e)=>{
-                if(e.target !=settingsContainer){
+                if( !settingsDiv.contains(e.target)){
                     
                     settingsToggle();
+                    console.log('bad')
                 }
             },{once:true});
 
@@ -71,7 +72,7 @@ function settingsToggle(e){
             settingsDiv.classList.remove("settingsOpened");
             settingsDiv.classList.add("settings");
             settingsBtn.classList.remove("hideClass");
-
+            
         },500);
     }
 }
