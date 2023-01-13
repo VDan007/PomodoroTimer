@@ -45,19 +45,25 @@ function settingsToggle(){
     console.log("woo");
     
     if(settingsDiv.classList.contains("settings")){
+        settingsBtn.classList.add("hideClass");
+
         settingsDiv.classList.remove("settings");
         settingsDiv.classList.add("settingsOpened");
-        settingsContainer.classList.remove("hideClass");
-        settingsBtn.classList.add("hideClass");
+        settingsContainer.style.top = "0";
         settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true})
         setTimeout(()=>{document.querySelector(".container").addEventListener("click",()=>{settingsToggle(); console.log("ba");},{once: true})},500);
         
     }else{
      
-        settingsDiv.classList.remove("settingsOpened");
-        settingsDiv.classList.add("settings");
-        settingsContainer.classList.add("hideClass");
-        settingsBtn.classList.remove("hideClass");
+        
+        
+        settingsContainer.style.top= "-500px";
+        setTimeout(()=>{
+            settingsDiv.classList.remove("settingsOpened");
+            settingsDiv.classList.add("settings");
+            settingsBtn.classList.remove("hideClass");
+
+        },500);
     }
 }
 
