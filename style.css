@@ -151,6 +151,8 @@ button:hover {
 #settingsIconDiv{
     min-height: 20px;
     min-width: 20px;
+    max-width: 20px;
+    max-height: 20px;
     
 }
 
@@ -171,8 +173,8 @@ button:hover {
     background: #FAFAFF;
     display: flex;
     flex-direction: column;
-    transition: top 0.5s ease-in;
-    -webkit-transition: top 0.5s ease-in;
+    transition: top 0.3s ease-in;
+    -webkit-transition: top 0.3s ease-in;
     border-radius: 20px;
     
 }

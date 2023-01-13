@@ -42,7 +42,7 @@ longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 function settingsToggle(){
     const settingsContainer = document.querySelector(".settingsContainer")
     const settingsDiv = document.getElementById("settingsDiv");
-    console.log("woo");
+    
     
     if(settingsDiv.classList.contains("settings")){
         settingsBtn.classList.add("hideClass");
@@ -51,7 +51,7 @@ function settingsToggle(){
         settingsDiv.classList.add("settingsOpened");
         settingsContainer.style.top = "25px";
         settingContainerClose.addEventListener("click",()=>{settingsToggle();},{once: true})
-        setTimeout(()=>{document.querySelector(".container").addEventListener("click",()=>{settingsToggle(); console.log("ba");},{once: true})},500);
+        setTimeout(()=>{document.querySelector(".container").addEventListener("click",()=>{settingsToggle(); console.log("ba");},{once: true})},200);
         
     }else{
      
