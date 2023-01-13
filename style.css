@@ -135,13 +135,11 @@ button:hover {
 }
 
 .settingsOpened{
-    position: absolute;
-    top: 0;
-    right: 0;
     
+    margin: 0 auto;
     z-index: 900;
-    width: 100vw;
-    background: var(--bgColor);
+    width: 95vw;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
