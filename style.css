@@ -177,7 +177,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     transition: top 0.2s ease-in;
-    -webkit-transition: top 0.2s ease-in; 
+    -webkit-transition: top 0.2s ease-in-out; 
     border-radius: 20px;
     
 }

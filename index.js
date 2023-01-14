@@ -616,6 +616,7 @@ function test(){
     createTask("alma");
     createTask("vacsi",3,1);
     createTask("almafa",2,1);
+    createTask("test007",8,3);
 
 
 }
