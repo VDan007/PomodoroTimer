@@ -50,6 +50,25 @@ inputToggleASTimer.checked = autoSwitch;
 const settingsLongBreakInterval = document.getElementById("settingsLongBreakInterval");
 settingsLongBreakInterval.value = longBrakeTime;
 
+document.querySelectorAll(".timerInput").forEach(
+    (input) => {input.addEventListener("input",updateValue)}
+);
+
+function updateValue(e){
+    let input = e.target;
+    if(input.id == "settingsInputPomodoro"){
+        pomodoro = input.value;
+    }
+    if(input.id == "settingInputShortBreak"){
+        shortBrake = input.value;
+    }
+    if(input.id == "settingsInputLongBreak"){
+        longBrake = input.value;
+    }
+}
+
+
+
 function settingsToggle(e){
     const settingsContainer = document.querySelector(".settingsContainer")
     const settingsDiv = document.getElementById("settingsDiv");
