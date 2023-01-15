@@ -1,7 +1,7 @@
 let timeDisplay = document.querySelector(".timerNumber");
 let pomodoro = 0.1;
 let pomodoroCounter = 0;
-const longBrakeTime = 4;
+let longBrakeTime = 4;
 let shortBrake = 0.1;
 let longBrake = 0.1;
 let secPassed = 0;
@@ -67,6 +67,9 @@ function updateValue(e){
     }
     if(input.id == "inputToggleASTimer" ){
         autoSwitch = input.checked ? true: false;
+    }
+    if(input.id == "settingsLongBreakInterval"){
+        longBrakeTime = input.value;
     }
 }
 
