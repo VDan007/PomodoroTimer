@@ -65,6 +65,9 @@ function updateValue(e){
     if(input.id == "settingsInputLongBreak"){
         longBrake = input.value;
     }
+    if(input.id == "inputToggleASTimer" ){
+        autoSwitch = input.checked ? true: false;
+    }
 }
 
 
