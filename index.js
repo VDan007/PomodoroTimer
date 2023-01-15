@@ -411,11 +411,19 @@ addTaskBtn.addEventListener('click',()=> {
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
     taskDonePomodoroNumberInput.value = '';
-    taskSaveBtn.addEventListener('click',createTaskOnSaveBtn);
+
+    let toBeCloned = document.getElementById("taskSaveBtn");
+    let cloneSaveBtn = toBeCloned.cloneNode(true);
+    toBeCloned.remove();
+    document.querySelector(".taskSettingsBtnDiv").prepend(cloneSaveBtn);
+
+
+    cloneSaveBtn.addEventListener('click',createTaskOnSaveBtn);
     if( taskSaveBtn.removeEventListener('click',updateTask)){ 
     taskSaveBtn.removeEventListener('click',updateTask);
     }
     addTaskBtn.classList.add('hideClass');
+
 })
 
 
@@ -534,16 +542,21 @@ function handleDragStart(e) {
     taskNameInput.value = tasksArray[task].taskName;
     taskPomodoroNumberInput.value = tasksArray[task].numberOfPomodoros;
     taskDonePomodoroNumberInput.value = tasksArray[task].numberOfCompletedPomodoros;
-    taskSaveBtn.removeEventListener('click',createTaskOnSaveBtn);
+    document.getElementById("taskSaveBtn").removeEventListener('click',createTaskOnSaveBtn);
 
     
-    trashBtn.removeEventListener('click',trashBtnClick);
-    trashBtn.addEventListener('click',()=>{deleteTask(task)},{once:true});
+    let toBeCloned = document.getElementById("trash");
+    let cloneTrash = toBeCloned.cloneNode(true);
+    toBeCloned.remove();
+    document.querySelector(".taskSettingsBtnDiv02").appendChild(cloneTrash);
+
+    cloneTrash.addEventListener('click',()=>{deleteTask(task)},{once:true});
+    
     
 
  
 
-     taskSaveBtn.addEventListener('click',()=>{updateTask(task,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true)},{once: true});
+     document.getElementById("taskSaveBtn").addEventListener('click',()=>{updateTask(task,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true)},{once: true});
     
     
     
