@@ -71,6 +71,7 @@ function updateValue(e){
     if(input.id == "settingsLongBreakInterval"){
         longBrakeTime = input.value;
     }
+    setTimer(currentPeriod);
 }
 
 
