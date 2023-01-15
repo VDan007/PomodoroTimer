@@ -38,7 +38,17 @@ const longBrakeButton = document.getElementById("longBrakeBtn");
 //longBrakeButton.addEventListener("click",(e) => classListModifier(e));
 longBrakeButton.addEventListener("click",() => periodShift("longBrake"));
 
-
+//////////////////////////settings//////////////////////////
+const settingsInputPomodoro = document.getElementById("settingsInputPomodoro");
+settingsInputPomodoro.value = pomodoro;
+const settingInputShortBreak =document.getElementById("settingInputShortBreak");
+settingInputShortBreak.value = shortBrake;
+const settingsInputLongBreak = document.getElementById("settingsInputLongBreak");
+settingsInputLongBreak.value = longBrake;
+const inputToggleASTimer = document.getElementById("inputToggleASTimer");
+inputToggleASTimer.checked = autoSwitch;
+const settingsLongBreakInterval = document.getElementById("settingsLongBreakInterval");
+settingsLongBreakInterval.value = longBrakeTime;
 
 function settingsToggle(e){
     const settingsContainer = document.querySelector(".settingsContainer")
@@ -85,7 +95,7 @@ function settingsToggle(e){
         },700);
     }
 }
-
+//////////////////////////settings//////////////////////////
 
 function periodButtonSwitch(){
     const periodBtns =  document.querySelectorAll(".periodBtn");

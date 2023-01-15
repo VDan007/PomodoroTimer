@@ -204,6 +204,11 @@ button:hover {
     
     padding: 0.3em;
 }
+
+.settingsBtnDiv input{
+    text-align: center;
+}
+
 .timeSettingsDivSub{
     display: flex;
     flex-direction: column;
@@ -215,6 +220,7 @@ button:hover {
 
 .timeSettingsDivSub input{
     max-width: 80%;
+    text-align: center;
 }
 
 
