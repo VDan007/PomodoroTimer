@@ -19,6 +19,7 @@ const settingsBtn = document.getElementById("settingsIconDiv");
 settingsBtn.addEventListener("click",settingsToggle);
 
 const settingContainerClose = document.querySelector(".settingContainerClose");
+let sound = document.querySelector("#audio");
 
 
 
@@ -196,7 +197,8 @@ function moveTimer (){
        
         else{
             startStopTimer();
-            
+            console.log('shoundPLay');
+            sound.play();
             startButton.innerText = "Restart";
             startButton.removeEventListener("click",startStopTimer);
             startButton.addEventListener("click",reSetTimer);
@@ -669,3 +671,6 @@ function test(){
 
 
 }
+
+
+
