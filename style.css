@@ -432,11 +432,11 @@ button:hover {
 .taskSettings{
     
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 0;
     background: inherit;
     z-index: 900;
-    width: 101%;
+    width: 100%;
     
     min-height: 20vh;
     max-height: 300px;
