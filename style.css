@@ -46,6 +46,8 @@ main{
 .container{
     padding: 04em;
     z-index: 800;
+   
+    
     
 }
 .clock{
@@ -70,7 +72,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 6em;
+    font-size: 6.5em;
     min-width: 280px;
     border-radius: 20px;
     text-shadow:  1px 1px 3px var(--borderColor);
