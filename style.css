@@ -494,6 +494,10 @@ input[type="number"]::-webkit-outer-spin-button {
     .periods{
         gap: 1.5em;
     }
+    .periods button{
+        padding: 0.5em 1em;
+       
+    }
 }
 
 @media (orientation: landscape) {
