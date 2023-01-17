@@ -470,3 +470,16 @@ input[type="number"]::-webkit-outer-spin-button {
 .over{
     border: 1px dotted var(--borderColor);
 }
+
+
+@media (min-width: 750px){
+    .timerNumber{
+        font-size: 8em;
+    }
+}
+
+@media (orientation: landscape) {
+    .hero{
+        overflow: auto;
+    }
+}
