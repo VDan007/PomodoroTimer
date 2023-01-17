@@ -38,7 +38,7 @@ main{
     align-items: center;
     background: var(--bgColor);
     color: var(--textColor);
-    overflow: hidden;
+    overflow-x: hidden;
     
     
 }
