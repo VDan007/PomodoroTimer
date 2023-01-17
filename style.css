@@ -480,6 +480,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media (orientation: landscape) {
     .hero{
-        overflow: auto;
+        overflow-y: auto;
     }
 }
