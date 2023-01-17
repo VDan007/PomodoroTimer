@@ -134,8 +134,10 @@ button:hover {
 
 .periods{
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    gap: 1.5em;
+    gap: 0.8em;
+    
     
 }
 
@@ -499,7 +501,7 @@ input[type="number"]::-webkit-outer-spin-button {
         font-size: 8em;
     }
     .periods{
-        gap: 1.5em;
+        gap: 1.7em;
     }
     .periods button{
         padding: 0.5em 1em;
