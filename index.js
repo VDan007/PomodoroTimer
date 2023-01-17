@@ -224,7 +224,7 @@ function reSetTimer(period){
 
 function setTimer(period){
     
-    console.log(period);
+    
     if(period == "pomodoro"){
          timeInSec = pomodoro * 60;
     }else if (period == "shortBrake"){
@@ -246,6 +246,7 @@ function periodShift(period){
     secPassed = 0;
     setTimer(currentPeriod);
     periodButtonSwitch();
+    startButton.innerText = "Start";
     
      
     
