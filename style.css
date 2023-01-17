@@ -8,11 +8,13 @@
 
 :root{
     --bgColor : linear-gradient(45deg,#2196F3,#90CAF9);
+    --textColor :white;
+    --borderColor : #1565C9;
 }
 
 html{
     height: 100vh;
-    background-color: gray;
+    background-color: black;
 
 }
 
@@ -29,12 +31,13 @@ main{
     position: relative;
     min-width: 100%;
     height: 100vh;
-    /* background: linear-gradient(45deg,#12664f,#5eb1bf); */
+    /* background: linear-gradient(45deg,#12664f,#5eb1bf);  box-shadwo: #A63A50*/ 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background: var(--bgColor);
+    color: var(--textColor);
     overflow: hidden;
     
     
@@ -47,7 +50,7 @@ main{
 }
 .clock{
     
-    box-shadow: 1px 1px 3px #A63A50;
+    box-shadow: 1px 1px 3px var(--borderColor);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +73,7 @@ main{
     font-size: 6em;
     min-width: 280px;
     border-radius: 20px;
-    text-shadow:  1px 1px 3px #A63A50;
+    text-shadow:  1px 1px 3px var(--borderColor);
    
    
     
@@ -81,11 +84,11 @@ button{
     padding: 0.5rem 3rem;
     border: none;
     background-color: inherit;
-    box-shadow: 1px 1px 3px #A63A50;
+    box-shadow: 1px 1px 3px var(--borderColor);
     border-radius: 20px;
     cursor: pointer;
     margin-bottom: 2em;
-    color: black;
+    color: var(--textColor);
     transition: all 0.7s;
     
     
@@ -122,7 +125,7 @@ button:hover {
 
 .currentPeriod{
     
-    box-shadow: -1px -1px 3px #A63A50;
+    box-shadow: -1px -1px 3px var(--borderColor);
 }
 
 /********************** settings **********************/
@@ -160,7 +163,7 @@ button:hover {
 }
 
 .settingsIcon{
-    fill: black;
+    fill: var(--textColor);
     pointer-events: none;
     width: 1em;
     height: auto;
@@ -341,6 +344,7 @@ button:hover {
     cursor: pointer;
     transition: all 0.7s;
     transform-origin: 50% 50%;
+    fill: var(--textColor);
    
     
     
@@ -365,7 +369,7 @@ button:hover {
 
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
-    box-shadow: 1px 1px 3px #A63A50;
+    box-shadow: 1px 1px 3px var(--borderColor);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -400,18 +404,18 @@ button:hover {
     height: 2em;
     width: 70%;
     text-align: center;
-    box-shadow: 1px 1px 3px #A63A50;
+    box-shadow: 1px 1px 3px var(--borderColor);
     border-radius: 10px;
     border: none;
     appearance: none;
-    color: black;
+    color: var(--textColor);
     background: inherit;
     
     
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--textColor);
     font-style: italic;
     opacity: 1; /* Firefox */
   }
@@ -439,13 +443,13 @@ input[type="number"]::-webkit-outer-spin-button {
 .progressBar{
     width: 100%;
     height: 3px;
-    box-shadow: 1px 1px 3px #A63A50;
+    box-shadow: 1px 1px 3px var(--borderColor);
     border-radius: 20px;
 }
 .currentStatus{
     height: 100%;
     width: 20%;
-    background-color: #A63A50;
+    background-color: var(--borderColor);
 }
 
 /********************** progressBar **********************/
@@ -461,5 +465,5 @@ input[type="number"]::-webkit-outer-spin-button {
     
 }
 .over{
-    border: 1px dotted #A63A50;
+    border: 1px dotted var(--borderColor);
 }
