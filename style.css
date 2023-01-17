@@ -45,8 +45,10 @@ main{
 }
 
 .container{
-    
+    padding: 4em;
     z-index: 800;
+    
+   
     
    
     
@@ -60,7 +62,7 @@ main{
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    padding: 1em 0.5em;
+    padding: 1.5em 1em;
     margin-top: 2em;
     margin-bottom: 2em;
     width: 100%;
@@ -133,7 +135,7 @@ button:hover {
 .periods{
     display: flex;
     align-items: center;
-    gap: 0.6em;
+    gap: 1.5em;
     
 }
 
