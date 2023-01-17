@@ -60,7 +60,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
     border-radius: 20px;
     padding: 1.5em 1em;
     margin-top: 2em;
@@ -98,9 +98,11 @@ main{
 
 
 button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
     
-    padding: 0.5rem 3rem;
-    padding-top: 0.7rem;
     border: none;
     background-color: inherit;
     box-shadow: 1px 1px 3px var(--borderColor);
@@ -109,6 +111,7 @@ button{
     margin-bottom: 2em;
     color: var(--textColor);
     transition: all 0.7s;
+
     
     
 }
@@ -116,6 +119,12 @@ button{
 button:hover {
     transform: scale(1.1);
     
+  }
+
+  #start{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
@@ -133,16 +142,22 @@ button:hover {
 }
 
 .periods{
+    
+    
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1.5em;
+    justify-content: space-between;
+    
+    
     
     
 }
 
+
+
 .periods button{
-    padding: 0.5em 0.7em;
+    
+    width: 30%;
    
 }
 
@@ -302,6 +317,14 @@ button:hover {
 /********************** settings **********************/
 
 /********************** tasks **********************/
+
+
+#addTaskBtn{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
 
 .taskList{
     margin-bottom: 1em;
@@ -507,7 +530,7 @@ input[type="number"]::-webkit-outer-spin-button {
         gap: 1.7em;
     }
     .periods button{
-        padding: 0.5em 1em;
+        padding: 0.7em 1.2em;
        
     }
 }
