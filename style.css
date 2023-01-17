@@ -122,7 +122,8 @@ button:hover {
   }
 
   #start{
-    width: 40%;
+    width: 50%;
+    padding: 1.3em 0;
     margin-left: auto;
     margin-right: auto;
   }
