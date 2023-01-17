@@ -136,7 +136,7 @@ button:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 0.8em;
+    gap: 1em;
     
     
 }
