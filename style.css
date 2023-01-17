@@ -118,6 +118,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 0.6em;
+    
 }
 
 .periods button{
@@ -475,6 +476,9 @@ input[type="number"]::-webkit-outer-spin-button {
 @media (min-width: 750px){
     .timerNumber{
         font-size: 8em;
+    }
+    .periods{
+        gap: 1.5em;
     }
 }
 
