@@ -545,6 +545,35 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
     height: 100%;
     background: white;
+    padding: 2em;
+    
+}
+
+.text h1 {
+    font-size:1.5em;
+    margin-bottom: 1em;
+}
+
+.text h1 span{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.text h2{
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+}
+
+.text p {
+    margin-bottom: 1.2em;
+}
+
+.text ul {
+    padding-left: 1em;
+}
+
+.textContainer{
+
 }
 
 
