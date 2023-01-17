@@ -45,8 +45,9 @@ main{
 }
 
 .container{
-    padding: 04em;
+    padding: 1em;
     z-index: 800;
+    
    
     
     
@@ -62,6 +63,7 @@ main{
     padding: 1em 0.5em;
     margin-top: 2em;
     margin-bottom: 2em;
+    width: 100%;
     
 }
 
