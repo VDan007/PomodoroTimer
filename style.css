@@ -7,9 +7,9 @@
 }
 
 :root{
-    --bgColor : linear-gradient(45deg,#2196F3,#90CAF9);
+    --bgColor : linear-gradient(45deg,#4CAF50,#81C784);
     --textColor :white;
-    --borderColor : #1565C9;
+    --borderColor : #388E3C;
 }
 
 html{
@@ -149,6 +149,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color:black;
 }
 
 #settingsIconDiv{
@@ -176,7 +177,7 @@ button:hover {
     position: absolute;
     top: -500px;
     max-width: 95vw;
-    background: #FAFAFF;
+    background: white;
     display: flex;
     flex-direction: column;
     transition: top 0.2s ease-in;

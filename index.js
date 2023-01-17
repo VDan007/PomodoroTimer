@@ -442,6 +442,8 @@ function trashBtnClick(){
 taskCancelBtn.addEventListener('click',()=> {
     taskSettingsDiv.classList.add('hideClass');
     addTaskBtn.classList.remove('hideClass');
+    document.getElementById("trash").classList.add('hideClass');
+    
  })
 
  trashBtn.addEventListener('click',trashBtnClick);
@@ -590,13 +592,16 @@ function handleDragStart(e) {
     toBeCloned.remove();
     document.querySelector(".taskSettingsBtnDiv02").appendChild(cloneTrash);
 
-    cloneTrash.addEventListener('click',()=>{deleteTask(task)},{once:true});
+    cloneTrash.addEventListener('click',()=>{deleteTask(task)
+                                            cloneTrash.classList.add("hideClass")},{once:true});
+    cloneTrash.classList.remove("hideClass");
     
     
 
  
 
-     document.getElementById("taskSaveBtn").addEventListener('click',()=>{updateTask(task,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true)},{once: true});
+     document.getElementById("taskSaveBtn").addEventListener('click',()=>{updateTask(task,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value,true)
+                                                                         cloneTrash.classList.add('hideClass')},{once: true});
     
     
     
