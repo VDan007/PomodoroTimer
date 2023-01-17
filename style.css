@@ -20,7 +20,7 @@ html{
 
 body{
     height: 100vh;
-    overflow: hidden;
+    
 }
 
 main{
@@ -110,6 +110,7 @@ button{
 
 button:hover {
     transform: scale(1.1);
+    
   }
 
 
