@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Courier Prime', monospace;
     
 }
 
@@ -69,7 +69,7 @@ main{
 
 .timerNumber{
 
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Courier Prime', monospace;
     letter-spacing: -0.1em;
     text-align: center;
     font-size: 6.5em;
@@ -94,6 +94,7 @@ main{
 
 
 button{
+    
     padding: 0.5rem 3rem;
     border: none;
     background-color: inherit;
