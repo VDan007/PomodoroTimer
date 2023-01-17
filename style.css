@@ -23,9 +23,7 @@ body{
     
 }
 
-main{
-    display: block;
-}
+
 
 
 .hero{
@@ -540,6 +538,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .over{
     border: 1px dotted var(--borderColor);
+}
+
+
+.text{
+    width: 100%;
+    height: 100%;
+    background: white;
 }
 
 
