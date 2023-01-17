@@ -404,16 +404,28 @@ button:hover {
     fill: var(--textColor);
     border: 0.5px solid var(--textColor);
     border-radius:5px;
-    
-   
-   
-    
-    
+       
 }
+
+.taskOptionsIconTrash{
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+    cursor: pointer;
+    transition: all 0.7s;
+    transform-origin: 50% 50%;
+    fill: var(--textColor);
+}
+
 
 .taskOptionsIcon:hover{
     transform: scale(1.4);
     
+}
+
+.taskOptionsIconTrash:hover{
+    transform: scale(1.4);
 }
 
 .taskSettings{

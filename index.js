@@ -1,9 +1,9 @@
 let timeDisplay = document.querySelector(".timerNumber");
-let pomodoro = 0.1;
+let pomodoro = 25;
 let pomodoroCounter = 0;
 let longBrakeTime = 4;
-let shortBrake = 0.1;
-let longBrake = 0.1;
+let shortBrake = 5;
+let longBrake = 15;
 let secPassed = 0;
 let minutesLeft ;
 let secondsLeft;
