@@ -96,6 +96,7 @@ main{
 button{
     
     padding: 0.5rem 3rem;
+    padding-top: 0.7rem;
     border: none;
     background-color: inherit;
     box-shadow: 1px 1px 3px var(--borderColor);
