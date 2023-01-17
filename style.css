@@ -76,7 +76,7 @@ main{
     font-family: 'Courier Prime', monospace;
     letter-spacing: -0.1em;
     text-align: center;
-    font-size: 6.5em;
+    font-size: 8em;
     width: 100%;
     border-radius: 20px;
     text-shadow:  1px 1px 3px var(--borderColor);
@@ -192,6 +192,7 @@ button:hover {
     width: 1em;
     height: auto;
     cursor: pointer;
+    
     
     
 }
@@ -369,6 +370,8 @@ button:hover {
     transition: all 0.7s;
     transform-origin: 50% 50%;
     fill: var(--textColor);
+    
+   
    
     
     
@@ -498,7 +501,7 @@ input[type="number"]::-webkit-outer-spin-button {
         min-width: 470px;
     }
     .timerNumber{
-        font-size: 8em;
+        font-size: 10em;
     }
     .periods{
         gap: 1.7em;
