@@ -170,6 +170,7 @@ function moveTimer (){
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
         if(autoSwitch ){
+            sound.play();
             if(currentPeriod == "pomodoro"){
                 pomodoroCounter++;
                 if(tasksArray.length != 0){ 
