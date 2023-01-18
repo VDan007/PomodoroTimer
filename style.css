@@ -243,6 +243,7 @@ button:hover {
    font-size: 0.9em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1em;
     
     padding: 0.3em;
@@ -266,6 +267,10 @@ button:hover {
     text-align: center;
 }
 
+#themes{
+    max-width: 35%;
+}
+
 
 .settingsBtnDiv{
     display: flex;
@@ -277,15 +282,15 @@ button:hover {
 }
 
 .settingsBtnDivInput{
-    
-    max-width: 20%;
+    width: auto;
+    max-width: 25%;
 }
 
 .toggleCheckbox{
     -webkit-appearance: none; 
     position: relative;
-    width: 50px;
-    height: 30px;
+    width: 40px;
+    height: 20px;
     border-radius: 25px;
     background-color:  gray;
     transition: background 0.3s;
@@ -300,8 +305,8 @@ button:hover {
     left: 30%;
     transform: translate(-50%,-50%);
     border-radius: 50%;
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 1rem;
+    width: 1rem;
     background-color: white;
     transition: left 0.3s;
 
