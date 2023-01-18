@@ -29,8 +29,7 @@ const settingContainerClose = document.querySelector(".settingContainerClose");
 const sound = document.querySelector("#audio");
 sound.autoplay = false;
 
-document.onload = ()=> { sound.load();
-                        sound.playsinline = true; };
+
 
 
 
@@ -92,6 +91,7 @@ function updateValue(e){
 function settingsToggle(e){
     const settingsContainer = document.querySelector(".settingsContainer")
     const settingsDiv = document.getElementById("settingsDiv");
+    sound.load();
     
     
     if(settingsDiv.classList.contains("settings")){
