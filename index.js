@@ -217,21 +217,27 @@ function themeSelect(){
 function soundSelect(){
     if(sounds.value == "Alarm"){
         sound.setAttribute("src","./sounds/AlarmRight.mp3");
+        sound.play();
     }
     if(sounds.value == "Attention"){
         sound.setAttribute("src","./sounds/call-to-attention-123107.mp3");
+        sound.play();
     }
     if(sounds.value == "Explosion"){
         sound.setAttribute("src","./sounds/muffled-distant-explosion-7104.mp3");
+        sound.play();
     }
     if(sounds.value == "Vocal"){
         sound.setAttribute("src","./sounds/sisters-voices-103432.mp3");
+        sound.play();
     }
     if(sounds.value == "TroatSing"){
         sound.setAttribute("src","./sounds/TroatSingAlarm.mp3");
+        sound.play();
     }
     if(sounds.value == "Bell"){
         sound.setAttribute("src","./sounds/old-church-bell-6298.mp3");
+        sound.play();
     }
 }
 
