@@ -239,7 +239,7 @@ function soundSelect(){
         sound.load();
         sound.play();
     }
-    if(sounds.value == "TroatSing"){
+    if(sounds.value == "Throat Sing"){
         sound.setAttribute("src","./sounds/TroatSingAlarm.mp3");
         sound.load();
         sound.play();
