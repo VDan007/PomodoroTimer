@@ -240,16 +240,8 @@ function soundSelect(){
         sound.load();
         sound.play();
     }
-    if(sounds.value == "Throat Sing"){
-        sound.setAttribute("src","./sounds/TroatSingAlarm.mp3");
-        sound.load();
-        sound.play();
-    }
-    if(sounds.value == "Bell"){
-        sound.setAttribute("src","./sounds/old-church-bell-6298.mp3");
-        sound.load();
-        sound.play();
-    }
+   
+    
 }
 
 function setRepeat(){
