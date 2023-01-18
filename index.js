@@ -194,6 +194,18 @@ function themeSelect(){
         root.style.setProperty('--borderColor','#8A2920');
         themes.value = "";
     }
+    if(themes.value == "Darth Pinky"){
+        root.style.setProperty('--bgColor','linear-gradient(35deg,#1C2331,#EA638C,#1C2331)');
+        root.style.setProperty('--textColor','#ECF0F1');
+        root.style.setProperty('--borderColor','#2C3E50');
+        themes.value = "";
+    }
+    if(themes.value == "Dark Knight"){
+        root.style.setProperty('--bgColor','radial-gradient(#3a3a3a,#000000)');
+        root.style.setProperty('--textColor','#ffffff');
+        root.style.setProperty('--borderColor','#545454');
+        themes.value = "";
+    }
 }
 //////////////////////////settings//////////////////////////
 
