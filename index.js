@@ -28,6 +28,10 @@ settingsBtn.addEventListener("click",settingsToggle);
 const settingContainerClose = document.querySelector(".settingContainerClose");
 const sound = document.querySelector("#audio");
 sound.autoplay = false;
+document.addEventListener('touch',()=>{
+    sound.play();
+    sound.pause();
+})
 
 
 
