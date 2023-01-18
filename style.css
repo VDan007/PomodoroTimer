@@ -275,6 +275,13 @@ button:hover {
     max-width: 35%;
 }
 
+#repeatTime{
+    max-width: 20%;
+}
+
+#volume{
+    max-width: 90%;
+}
 
 .settingsBtnDiv{
     display: flex;
