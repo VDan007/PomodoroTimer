@@ -30,7 +30,7 @@ const sound = document.querySelector("#audio");
 sound.autoplay = false;
 
 document.onload = ()=> { sound.load();
-                        sound.muted = true; };
+                        sound.playsinline = true; };
 
 
 
