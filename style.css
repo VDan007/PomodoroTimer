@@ -268,6 +268,10 @@ button:hover {
 }
 
 #themes{
+    max-width: 40%;
+}
+
+#sounds{
     max-width: 35%;
 }
 
