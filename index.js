@@ -12,6 +12,9 @@ let interval;
 let areWeCounting = false;
 let currentPeriod = "pomodoro";
 let autoSwitch = true;
+const themes = document.getElementById("themes");
+themes.addEventListener("input",themeSelect);
+themesList = document.getElementById("themesDatalist");
 let deliberetlyStarted = false;
 let tasksArray = [];
 let done = false;
@@ -120,6 +123,34 @@ function settingsToggle(e){
             settingsBtn.style.right = "0px";
             
         },700);
+    }
+}
+
+function themeSelect(){
+    const root = document .querySelector(":root");
+    if(themes.value == "Default Apple"){
+        root.style.setProperty('--bgColor','linear-gradient(45deg,#4CAF50,#81C784)');
+        root.style.setProperty('--textColor','#FFFFFF');
+        root.style.setProperty('--borderColor','#388E3C');
+        themes.value = "";
+    }
+    if(themes.value == "Borg"){
+        root.style.setProperty('--bgColor','linear-gradient(45deg,#0A0A0A,#2C2C2C)');
+        root.style.setProperty('--textColor','#FFFFFF');
+        root.style.setProperty('--borderColor','#00FF00');
+        themes.value = "";
+    }
+    if(themes.value == "Pinky"){
+        root.style.setProperty('--bgColor','radial-gradient(#FF4D80,#F8F8FF)');
+        root.style.setProperty('--textColor','#465362');
+        root.style.setProperty('--borderColor','#011936');
+        themes.value = "";
+    }
+    if(themes.value == "Dawn"){
+        root.style.setProperty('--bgColor','radial-gradient(#F9A42A,#C94277)');
+        root.style.setProperty('--textColor','#C7FFED');
+        root.style.setProperty('--borderColor','#AAFAC8');
+        themes.value = "";
     }
 }
 //////////////////////////settings//////////////////////////

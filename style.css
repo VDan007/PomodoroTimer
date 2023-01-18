@@ -7,8 +7,8 @@
 }
 
 :root{
-    --bgColor : linear-gradient(45deg,#4CAF50,#81C784);
-    --textColor :white;
+    --bgColor :linear-gradient(45deg,#4CAF50,#81C784);
+    --textColor :#FFFFFF;
     --borderColor : #388E3C;
 }
 
@@ -367,6 +367,7 @@ button:hover {
 
 .done{
     text-decoration: line-through;
+    text-decoration-color: var(--borderColor);
 }
 
  .liLeft{
