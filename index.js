@@ -220,7 +220,7 @@ function themeSelect(){
 
 function soundSelect(){
     if(sounds.value == "Alarm"){
-        sound.setAttribute("src","./sounds/AlarmRight.mp3");
+        sound.setAttribute("src","./sounds/alarm.mp3");
         sound.load();
         sound.play();
     }
