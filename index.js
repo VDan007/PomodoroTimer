@@ -250,9 +250,10 @@ function setRepeat(){
     alarmRepeat = repeatTime.value ;
 }
 
-let timesPlayed = 0;
+
 
 function repeat(){
+    let timesPlayed = 0;
     
     sound.addEventListener('ended', ()=>{
         timesPlayed++;
