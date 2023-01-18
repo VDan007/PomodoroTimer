@@ -13,6 +13,10 @@ let areWeCounting = false;
 let currentPeriod = "pomodoro";
 let autoSwitch = true;
 const themes = document.getElementById("themes");
+const sounds = document.getElementById("sounds");
+sounds.addEventListener("click",()=>{themes.value = "";});
+sounds.addEventListener("input",soundSelect);
+themes.addEventListener("click",()=>{themes.value = "";});
 themes.addEventListener("input",themeSelect);
 themesList = document.getElementById("themesDatalist");
 let deliberetlyStarted = false;
@@ -22,7 +26,7 @@ const settingsBtn = document.getElementById("settingsIconDiv");
 settingsBtn.addEventListener("click",settingsToggle);
 
 const settingContainerClose = document.querySelector(".settingContainerClose");
-let sound = document.querySelector("#audio");
+const sound = document.querySelector("#audio");
 
 
 
@@ -127,86 +131,92 @@ function settingsToggle(e){
 }
 
 function themeSelect(){
+    
     const root = document .querySelector(":root");
     if(themes.value == "Default Apple"){
         root.style.setProperty('--bgColor','linear-gradient(45deg,#4CAF50,#81C784)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#388E3C');
-        themes.value = "";
+        
     }
     if(themes.value == "Borg"){
         root.style.setProperty('--bgColor','linear-gradient(45deg,#0A0A0A,#2C2C2C)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#00FF00');
-        themes.value = "";
+        
     }
     if(themes.value == "Pinky"){
         root.style.setProperty('--bgColor','radial-gradient(#FF4D80,#F8F8FF)');
         root.style.setProperty('--textColor','#465362');
         root.style.setProperty('--borderColor','#011936');
-        themes.value = "";
+        
     }
     if(themes.value == "Dawn"){
         root.style.setProperty('--bgColor','radial-gradient(#F9A42A,#C94277)');
         root.style.setProperty('--textColor','#C7FFED');
         root.style.setProperty('--borderColor','#AAFAC8');
-        themes.value = "";
+        
     }
     if(themes.value == "Honey"){
         root.style.setProperty('--bgColor','linear-gradient(45deg,#FFEB3B,#FFF59D)');
         root.style.setProperty('--textColor','#424242');
         root.style.setProperty('--borderColor','#F57F17');
-        themes.value = "";
+        
     }
     if(themes.value == "Purposeful Purple"){
         root.style.setProperty('--bgColor','radial-gradient(#E1BEE7,#9C27B0)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#4A148C');
-        themes.value = "";
+        
     }
     if(themes.value == "Rapid Red"){
         root.style.setProperty('--bgColor','radial-gradient(#EF9A9A,#F44336)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#B71C1C');
-        themes.value = "";
+        
     }
     if(themes.value == "Mustard Menace"){
         root.style.setProperty('--bgColor','linear-gradient(35deg,#303030,#ffff00)');
         root.style.setProperty('--textColor','#000');
         root.style.setProperty('--borderColor','#ffff00');
-        themes.value = "";
+        
     }
     if(themes.value == "Dark Star"){
         root.style.setProperty('--bgColor','radial-gradient(#000000,#000080,#ff0000)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#ff0000');
-        themes.value = "";
+       
     }
     if(themes.value == "Ice Cold"){
         root.style.setProperty('--bgColor','radial-gradient(#00008b,#87cefa,#00008b)');
         root.style.setProperty('--textColor','#FFFFFF');
         root.style.setProperty('--borderColor','#87cefa');
-        themes.value = "";
+        
     }
     if(themes.value == "Villainy Orange"){
         root.style.setProperty('--bgColor','linear-gradient(45deg,#242022,#080908)');
         root.style.setProperty('--textColor','#B45623');
         root.style.setProperty('--borderColor','#8A2920');
-        themes.value = "";
+        
     }
     if(themes.value == "Darth Pinky"){
         root.style.setProperty('--bgColor','linear-gradient(35deg,#1C2331,#EA638C,#1C2331)');
         root.style.setProperty('--textColor','#ECF0F1');
         root.style.setProperty('--borderColor','#2C3E50');
-        themes.value = "";
+        
     }
     if(themes.value == "Dark Knight"){
         root.style.setProperty('--bgColor','radial-gradient(#3a3a3a,#000000)');
         root.style.setProperty('--textColor','#ffffff');
         root.style.setProperty('--borderColor','#545454');
-        themes.value = "";
+        
     }
 }
+
+function soundSelect(){
+
+}
+
 //////////////////////////settings//////////////////////////
 
 function periodButtonSwitch(){
