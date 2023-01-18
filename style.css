@@ -225,6 +225,16 @@ button:hover {
     
 }
 
+.settingsContainer input{
+    padding-top: 0.2em;
+    
+}
+
+.settingsBtnDiv input::placeholder{
+    color:black!important;
+    
+}
+
 .settingsContainerHeader{
     
     display:flex;

@@ -61,6 +61,7 @@ const inputToggleASTimer = document.getElementById("inputToggleASTimer");
 inputToggleASTimer.checked = autoSwitch;
 const settingsLongBreakInterval = document.getElementById("settingsLongBreakInterval");
 settingsLongBreakInterval.value = longBrakeTime;
+let alarmRepeat = 1;
 
 document.querySelectorAll(".timerInput").forEach(
     (input) => {input.addEventListener("input",updateValue)}
@@ -248,6 +249,18 @@ function soundSelect(){
         sound.setAttribute("src","./sounds/old-church-bell-6298.mp3");
         sound.load();
         sound.play();
+    }
+}
+
+function setRepeat(){
+    
+}
+
+function repeat(){
+    let i = 0;
+    while(i < alarmRepeat){
+        sound.play();
+        i++;
     }
 }
 
