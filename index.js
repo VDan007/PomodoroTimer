@@ -62,6 +62,8 @@ inputToggleASTimer.checked = autoSwitch;
 const settingsLongBreakInterval = document.getElementById("settingsLongBreakInterval");
 settingsLongBreakInterval.value = longBrakeTime;
 let alarmRepeat = 1;
+const repeatTime =document.getElementById("repeatTime");
+repeatTime.addEventListener("input",setRepeat);
 
 document.querySelectorAll(".timerInput").forEach(
     (input) => {input.addEventListener("input",updateValue)}
@@ -245,15 +247,20 @@ function soundSelect(){
 }
 
 function setRepeat(){
-
+    alarmRepeat = repeatTime.value ;
 }
 
+let timesPlayed = 0;
+
 function repeat(){
-    let i = 0;
-    while(i < alarmRepeat){
-        sound.play();
-        i++;
-    }
+    
+    sound.addEventListener('ended', ()=>{
+        timesPlayed++;
+        if(timesPlayed < alarmRepeat){
+            sound.play();
+        }
+    })
+    sound.play();
 }
 
 //////////////////////////settings//////////////////////////
@@ -304,7 +311,7 @@ function moveTimer (){
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     if (secondsLeft <= 0) {
         if(autoSwitch ){
-            sound.play();
+            repeat();
             if(currentPeriod == "pomodoro"){
                 pomodoroCounter++;
                 if(tasksArray.length != 0){ 
@@ -333,7 +340,7 @@ function moveTimer (){
         else{
             startStopTimer();
             console.log('shoundPLay');
-            sound.play();
+            repeat();
             startButton.innerText = "Restart";
             startButton.removeEventListener("click",startStopTimer);
             startButton.addEventListener("click",reSetTimer);
