@@ -7,9 +7,9 @@
 }
 
 :root{
-    --bgColor :linear-gradient(45deg,#4CAF50,#81C784);
+    --bgColor :radial-gradient(#00008b,#87cefa,#00008b);
     --textColor :#FFFFFF;
-    --borderColor : #388E3C;
+    --borderColor : #87cefa;
 }
 
 html{
