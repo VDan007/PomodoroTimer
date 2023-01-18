@@ -231,7 +231,7 @@ function soundSelect(){
         sound.play();
     }
     if(sounds.value == "Explosion"){
-        sound.setAttribute("src","./sounds/muffled-distant-explosion-7104.mp3");
+        sound.setAttribute("src","./sounds/explosion.mp3");
         sound.load();
         sound.play();
     }
@@ -253,7 +253,7 @@ function soundSelect(){
 }
 
 function setRepeat(){
-    
+
 }
 
 function repeat(){
