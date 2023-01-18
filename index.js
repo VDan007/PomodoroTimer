@@ -14,7 +14,7 @@ let currentPeriod = "pomodoro";
 let autoSwitch = true;
 const themes = document.getElementById("themes");
 const sounds = document.getElementById("sounds");
-sounds.addEventListener("click",()=>{themes.value = "";});
+sounds.addEventListener("click",()=>{sounds.value = "";});
 sounds.addEventListener("input",soundSelect);
 themes.addEventListener("click",()=>{themes.value = "";});
 themes.addEventListener("input",themeSelect);
@@ -214,7 +214,24 @@ function themeSelect(){
 }
 
 function soundSelect(){
-
+    if(sounds.value == "Alarm"){
+        sound.setAttribute("src","./sounds/AlarmRight.mp3");
+    }
+    if(sounds.value == "Attention"){
+        sound.setAttribute("src","./sounds/call-to-attention-123107.mp3");
+    }
+    if(sounds.value == "Explosion"){
+        sound.setAttribute("src","./sounds/muffled-distant-explosion-7104.mp3");
+    }
+    if(sounds.value == "Vocal"){
+        sound.setAttribute("src","./sounds/sisters-voices-103432.mp3");
+    }
+    if(sounds.value == "TroatSing"){
+        sound.setAttribute("src","./sounds/TroatSingAlarm.mp3");
+    }
+    if(sounds.value == "Bell"){
+        sound.setAttribute("src","./sounds/old-church-bell-6298.mp3");
+    }
 }
 
 //////////////////////////settings//////////////////////////
