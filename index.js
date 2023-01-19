@@ -92,6 +92,8 @@ function updateValue(e){
 
 
 function settingsToggle(e){
+    const volume = document.getElementById("volume");
+    volume.addEventListener('input',setVolume);
     const settingsContainer = document.querySelector(".settingsContainer")
     const settingsDiv = document.getElementById("settingsDiv");
     sound.load();
@@ -262,6 +264,10 @@ function repeat(){
         }
     })
     sound.play();
+}
+
+function setVolume(){
+    sound.volume = volume.value;
 }
 
 //////////////////////////settings//////////////////////////
