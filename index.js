@@ -486,7 +486,7 @@ function updateTask(index, pomodoros, donePomodoros,options){
       
         
     }
-    countPomodoros()
+    countPomodoros();
 }
 
 function createTask(name, number,done){
@@ -799,9 +799,10 @@ function countPomodoros (){
         }
         progress.style.width = `${percentage}%`;
         
-        if(pomodoros  == pomodorosDone){
-            done = true;
-        }
+       // if(pomodoros  == pomodorosDone){
+       //     done = true;
+       // }
+        pomodoros == pomodorosDone ? done = true : done = false;
         if(!done){
             putUnfinishedTaskFirst();
         }
