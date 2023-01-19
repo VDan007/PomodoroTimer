@@ -818,6 +818,23 @@ function countPomodoros (){
 ////////////////////////////progress bar///////////////////////////////
 
 
+////////////////////////////Music///////////////////////////////
+const musicContainer = document.getElementById("musicContainer");
+const musicBtn = document.getElementById("muiscBtn");
+musicBtn.addEventListener("click",toggleMusicDiv);
+
+function toggleMusicDiv (){
+    if(musicContainer.classList.contains("hideClass")){
+        musicContainer.classList.remove("hideClass");
+    }else{
+        musicContainer.classList.add("hideClass");
+    }
+}
+
+
+
+
+////////////////////////////Music///////////////////////////////
 
 function test(){
     createTask("alma");
@@ -827,6 +844,3 @@ function test(){
 
 
 }
-
-
-
