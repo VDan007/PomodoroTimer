@@ -836,17 +836,16 @@ function toggleMusicDiv (){
 function loadMusic(e){
     let button =e.target.id;
     let frame = document.createElement("iframe");
-    musicContainer.append(frame);
+    
     frame.setAttribute("loading","lazy");
     frame.setAttribute("allow","autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
     frame.setAttribute("width","100%");
     frame.setAttribute("height","250");
     frame.setAttribute("frameBorder","0");
-    frame.setAttribute("allowfullscreen","");
-    if(button = "metalBtn"){
-        frame.setAttribute(
+    frame.setAttribute(
             "src","https://open.spotify.com/embed/artist/0QQpya0rYaN3prGBCQczRZ?utm_source=generator");
-    }
+    frame.onload =  musicContainer.append(frame);        
+    
 }
 
 
