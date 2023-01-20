@@ -820,33 +820,53 @@ function countPomodoros (){
 
 ////////////////////////////Music///////////////////////////////
 const musicContainer = document.getElementById("musicContainer");
-const musicBtn = document.getElementById("muiscBtn");
-musicBtn.addEventListener("click",toggleMusicDiv);
-const metalBtn = document.getElementById("metalBtn");
-metalBtn.addEventListener("click",loadMusic);
+const muiscBtn = document.getElementById("muiscBtn");
+muiscBtn.addEventListener("click",toggleMusicDiv);
+
+const musicTypeSelectBtns = document.querySelectorAll(".musicTypeSelectBtn");
+musicTypeSelectBtns.forEach(
+    (btn) => {btn.addEventListener("click",loadMusic);}
+);
 
 function toggleMusicDiv (){
+    let frame = musicContainer.querySelector("#spotifyFrame");
+    console.log(frame);
+
     if(musicContainer.classList.contains("hideClass")){
         musicContainer.classList.remove("hideClass");
     }else{
         musicContainer.classList.add("hideClass");
+        if(frame){
+            frame.remove();
+        }
     }
 }
 
 function loadMusic(e){
     let button =e.target.id;
+    console.log('clicked');
     let frame = document.createElement("iframe");
-    
+    frame.setAttribute("id","spotifyFrame");
     frame.setAttribute("loading","lazy");
     frame.setAttribute("allow","autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
     frame.setAttribute("width","100%");
     frame.setAttribute("height","250");
     frame.setAttribute("frameBorder","0");
-    frame.setAttribute(
-            "src","https://open.spotify.com/embed/artist/0QQpya0rYaN3prGBCQczRZ?utm_source=generator");
-    frame.onload =  musicContainer.append(frame);        
+    if(button == "metalBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/artist/0QQpya0rYaN3prGBCQczRZ?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "studyBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator");
+        musicContainer.append(frame);
+    }
+}     
+      
     
-}
+    
+
 
 
 ////////////////////////////Music///////////////////////////////
