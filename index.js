@@ -834,7 +834,9 @@ function toggleMusicDiv (){
 
     if(musicContainer.classList.contains("hideClass")){
         musicContainer.classList.remove("hideClass");
+        muiscBtn.textContent = "Close Music";
     }else{
+        muiscBtn.textContent = "Music";
         musicContainer.classList.add("hideClass");
         if(frame){
             frame.remove();
