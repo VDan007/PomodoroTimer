@@ -628,13 +628,14 @@ footer{
 #musicContainer{
     display: flex;
     flex-wrap: wrap;
-    max-width: 500px; 
+    max-width: 469px; 
     
    
     
 }
 
 .musicTypeSelectBtn{
+    font-size: 0.8em;
     margin-left: 1em;
     margin-bottom: 1em;
 }
