@@ -843,6 +843,11 @@ function toggleMusicDiv (){
 }
 
 function loadMusic(e){
+    let prevFrame = musicContainer.querySelector("#spotifyFrame");
+    if(prevFrame){
+        prevFrame.remove();
+    }
+   
     let button =e.target.id;
     console.log('clicked');
     let frame = document.createElement("iframe");
@@ -860,6 +865,16 @@ function loadMusic(e){
     if(button == "studyBtn"){ 
         frame.setAttribute(
                 "src","https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "chillBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/0AIovh0Qq1sUP7YfhxTDhw?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "pianoBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/5JAgYZVe3O7iMa4HZ2X63D?utm_source=generator");
         musicContainer.append(frame);
     }
 }     

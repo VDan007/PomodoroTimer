@@ -466,8 +466,8 @@ button:hover {
     min-height: 20vh;
     max-height: 300px;
 
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(11px);
+    -webkit-backdrop-filter: blur(11px);
     box-shadow: 1px 1px 3px var(--borderColor);
     border-radius: 20px;
     display: flex;
@@ -628,7 +628,6 @@ footer{
 #musicContainer{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid red;
     max-width: 500px; 
     
    
