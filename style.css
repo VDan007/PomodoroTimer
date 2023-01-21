@@ -13,13 +13,18 @@
 }
 
 html{
-    height: 100vh;
+    
     background-color: black;
-
+    
+   
+    
 }
 
-body{
-    height: 100vh;
+main{
+    display: flex;
+    flex-direction: column;
+   
+    
     
 }
 
@@ -28,8 +33,9 @@ body{
 
 .hero{
     position: relative;
-    min-width: 100%;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    
     /* background: linear-gradient(45deg,#12664f,#5eb1bf);  box-shadwo: #A63A50*/ 
     display: flex;
     flex-direction: column;
@@ -38,6 +44,9 @@ body{
     background: var(--bgColor);
     color: var(--textColor);
     overflow-x: hidden;
+    overflow-y:visible;
+    
+    
     
     
 }
@@ -45,6 +54,8 @@ body{
 .container{
     padding: 4em;
     z-index: 800;
+    
+    
     
     
    
