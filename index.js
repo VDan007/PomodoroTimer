@@ -316,7 +316,7 @@ function moveTimer (){
    timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
-    if (secondsLeft <= 0) {
+    if (minutesLeft == 0 && secondsLeft <= 0) {
         if(autoSwitch ){
             repeat();
             if(currentPeriod == "pomodoro"){
