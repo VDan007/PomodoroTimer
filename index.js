@@ -577,7 +577,7 @@ function deleteTask(index){
 
 function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
-    addTaskBtn.classList.remove('hideClass');
+    
 }
 
 function trashBtnClick(){
@@ -597,6 +597,7 @@ taskCancelBtn.addEventListener('click',()=> {
  trashBtn.addEventListener('click',trashBtnClick);
 
 addTaskBtn.addEventListener('click',()=> {
+    
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
@@ -726,7 +727,7 @@ function handleDragStart(e) {
  
   function modifyTask(e){
 
-    
+    addTaskBtn.classList.add("hideClass");
     const task = findingTask(e);
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = tasksArray[task].taskName;
