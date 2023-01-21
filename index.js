@@ -742,6 +742,7 @@ function handleDragStart(e) {
     document.querySelector(".taskSettingsBtnDiv02").appendChild(cloneTrash);
 
     cloneTrash.addEventListener('click',()=>{deleteTask(task)
+                                            addTaskBtn.classList.remove("hideClass");
                                             cloneTrash.classList.add("hideClass")},{once:true});
     cloneTrash.classList.remove("hideClass");
     
