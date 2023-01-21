@@ -362,10 +362,10 @@ function moveTimer (){
     }
 }
 
-function reSetTimer(period){
+function reSetTimer(){
     areWeCounting = false;
     secPassed = 0;
-    setTimer(period);
+    setTimer("pomodoro");
     startStopTimer();
     startButton.removeEventListener("click",reSetTimer);
     startButton.addEventListener("click",startStopTimer);
