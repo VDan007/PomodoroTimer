@@ -1,3 +1,4 @@
+const myWorker = new Worker("worker.js");
 let timeDisplay = document.querySelector(".timerNumber");
 let pomodoro = 25;
 let pomodoroCounter = 0;
