@@ -309,7 +309,7 @@ function startStopTimer(){
 
 
 function moveTimer (){
-   let start = performance.now(); 
+   
    secPassed++;
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
     secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
@@ -360,9 +360,7 @@ function moveTimer (){
 
         
     }
-    let end = performance.now();
-    let duration = end - start;
-    console.log(duration);
+    
 }
 
 function reSetTimer(){
