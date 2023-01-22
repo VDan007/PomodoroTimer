@@ -309,14 +309,14 @@ function startStopTimer(){
 
 
 function moveTimer (){
-
+   let start = performance.now(); 
    secPassed++;
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
     secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
    timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
-    if (minutesLeft < 0 || minutesLeft <= 0 && secondsLeft <= 0) {
+    if (timeInSec <= secPassed) {
         if(autoSwitch ){
             repeat();
             if(currentPeriod == "pomodoro"){
@@ -360,6 +360,9 @@ function moveTimer (){
 
         
     }
+    let end = performance.now();
+    let duration = end - start;
+    console.log(duration);
 }
 
 function reSetTimer(){
