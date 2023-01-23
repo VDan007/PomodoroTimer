@@ -1,3 +1,4 @@
+const myWorker = new Worker("worker.js");
 let timeDisplay = document.querySelector(".timerNumber");
 let pomodoro = 25;
 let pomodoroCounter = 0;
@@ -30,8 +31,28 @@ const sound = document.querySelector("#audio");
 sound.autoplay = false;
 
 
+/////////////Worker///////////////////////////
+
+function start(){
+    myWorker.postMessage('start');
+}
+
+function stop(){
+    myWorker.postMessage('terminate');
+}
 
 
+myWorker.onmessage = function(e) {
+    console.log(e.data);
+    secPassed = e.data;
+    moveTimer();
+    
+}
+
+
+
+
+/////////////Worker///////////////////////////
 
 
 const startButton = document.getElementById("start");
@@ -291,13 +312,13 @@ function periodButtonSwitch(){
 
 function startStopTimer(){
     if(areWeCounting){
-        clearInterval(interval);
+        stop();
         startButton.innerText = "Start";
         areWeCounting = false;
         deliberetlyStarted = false;
         
     }else{ 
-     interval = setInterval( moveTimer, 1000);
+     start();
      startButton.innerText = "Pause";
      areWeCounting = true;
      deliberetlyStarted = true;
@@ -309,14 +330,14 @@ function startStopTimer(){
 
 
 function moveTimer (){
-
+   
    secPassed++;
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
     secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
    timeDisplay.innerText = " ";
     timeDisplay.innerText = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
     document.title = `${minutesLeft < 10 ? "0"+minutesLeft : minutesLeft}:${secondsLeft < 10 ? "0"+secondsLeft : secondsLeft}`;
-    if (secondsLeft <= 0) {
+    if (timeInSec <= secPassed) {
         if(autoSwitch ){
             repeat();
             if(currentPeriod == "pomodoro"){
@@ -360,12 +381,13 @@ function moveTimer (){
 
         
     }
+    
 }
 
-function reSetTimer(period){
+function reSetTimer(){
     areWeCounting = false;
     secPassed = 0;
-    setTimer(period);
+    setTimer("pomodoro");
     startStopTimer();
     startButton.removeEventListener("click",reSetTimer);
     startButton.addEventListener("click",startStopTimer);
@@ -389,7 +411,7 @@ function setTimer(period){
 }
 
 function periodShift(period){
-    clearInterval(interval);
+    stop();
     currentPeriod = period;
     areWeCounting = false;
     secPassed = 0;
@@ -577,7 +599,7 @@ function deleteTask(index){
 
 function createTaskOnSaveBtn(){
     createTask(taskNameInput.value,taskPomodoroNumberInput.value,taskDonePomodoroNumberInput.value);
-    addTaskBtn.classList.remove('hideClass');
+    
 }
 
 function trashBtnClick(){
@@ -597,6 +619,7 @@ taskCancelBtn.addEventListener('click',()=> {
  trashBtn.addEventListener('click',trashBtnClick);
 
 addTaskBtn.addEventListener('click',()=> {
+    
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = '';
     taskPomodoroNumberInput.value = '';
@@ -726,7 +749,7 @@ function handleDragStart(e) {
  
   function modifyTask(e){
 
-    
+    addTaskBtn.classList.add("hideClass");
     const task = findingTask(e);
     taskSettingsDiv.classList.remove('hideClass');
     taskNameInput.value = tasksArray[task].taskName;
@@ -741,6 +764,7 @@ function handleDragStart(e) {
     document.querySelector(".taskSettingsBtnDiv02").appendChild(cloneTrash);
 
     cloneTrash.addEventListener('click',()=>{deleteTask(task)
+                                            addTaskBtn.classList.remove("hideClass");
                                             cloneTrash.classList.add("hideClass")},{once:true});
     cloneTrash.classList.remove("hideClass");
     
@@ -818,6 +842,75 @@ function countPomodoros (){
 ////////////////////////////progress bar///////////////////////////////
 
 
+////////////////////////////Music///////////////////////////////
+const musicContainer = document.getElementById("musicContainer");
+const muiscBtn = document.getElementById("muiscBtn");
+muiscBtn.addEventListener("click",toggleMusicDiv);
+
+const musicTypeSelectBtns = document.querySelectorAll(".musicTypeSelectBtn");
+musicTypeSelectBtns.forEach(
+    (btn) => {btn.addEventListener("click",loadMusic);}
+);
+
+function toggleMusicDiv (){
+    let frame = musicContainer.querySelector("#spotifyFrame");
+    console.log(frame);
+
+    if(musicContainer.classList.contains("hideClass")){
+        musicContainer.classList.remove("hideClass");
+        
+    }else{
+       
+        musicContainer.classList.add("hideClass");
+        if(frame){
+            frame.remove();
+        }
+    }
+}
+
+function loadMusic(e){
+    let prevFrame = musicContainer.querySelector("#spotifyFrame");
+    if(prevFrame){
+        prevFrame.remove();
+    }
+   
+    let button =e.target.id;
+    console.log('clicked');
+    let frame = document.createElement("iframe");
+    frame.setAttribute("id","spotifyFrame");
+    frame.setAttribute("loading","lazy");
+    frame.setAttribute("allow","autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
+    frame.setAttribute("width","100%");
+    frame.setAttribute("height","250");
+    frame.setAttribute("frameBorder","0");
+    if(button == "metalBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/artist/0QQpya0rYaN3prGBCQczRZ?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "studyBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "chillBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/0AIovh0Qq1sUP7YfhxTDhw?utm_source=generator");
+        musicContainer.append(frame);
+    }
+    if(button == "pianoBtn"){ 
+        frame.setAttribute(
+                "src","https://open.spotify.com/embed/playlist/5JAgYZVe3O7iMa4HZ2X63D?utm_source=generator");
+        musicContainer.append(frame);
+    }
+}     
+      
+    
+    
+
+
+
+////////////////////////////Music///////////////////////////////
 
 function test(){
     createTask("alma");
@@ -827,6 +920,3 @@ function test(){
 
 
 }
-
-
-

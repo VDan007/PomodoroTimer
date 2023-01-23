@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5774686077783968"
-     crossorigin="anonymous"></script>
+    
+    
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -102,44 +103,66 @@
             </div>
            
             <div class="container">
-            <div class="clock">
-                
-                <div class="timerNumber"> </div>
-                <button id="start" type="button">Start</button>
-                <div class="periods">
-                    <button id="pomodoroBtn"   class="periodBtn currentPeriod">Pomodoro</button>
-                    <button id="shortBrakeBtn" class="periodBtn">Short Break</button>
-                    <button id="longBrakeBtn"  class="periodBtn">Long Break</button>
-                </div>
-            </div>
-            
-            <div class="addTask">
-                <div id="taskSettings" class="taskSettings hideClass">
-                    <input id="taskNameInput" type="text" placeholder="...task name...">
-                    <input id="taskPomodoroNumberInput" type="number" placeholder="...number of pomodoros...">
-                    <input id="taskDonePomodoroNumberInput" type="number" placeholder="...number of done pomodoros...">
-                    <div class="taskSettingsBtnDiv">
-                        <button id="taskSaveBtn">Save</button>
-                        <button id="taskCancelBtn">Close</button>
+                <div class="clock">
+                    
+                    <div class="timerNumber"> 
                     </div>
-                    <div class="taskSettingsBtnDiv02">
-                        <svg id="trash" class="taskOptionsIconTrash hideClass"  viewBox="0 0 448 512"><!--! --><path d="M160 400C160 408.8 152.8 416 144 416C135.2 416 128 408.8 128 400V192C128 183.2 135.2 176 144 176C152.8 176 160 183.2 160 192V400zM240 400C240 408.8 232.8 416 224 416C215.2 416 208 408.8 208 400V192C208 183.2 215.2 176 224 176C232.8 176 240 183.2 240 192V400zM320 400C320 408.8 312.8 416 304 416C295.2 416 288 408.8 288 400V192C288 183.2 295.2 176 304 176C312.8 176 320 183.2 320 192V400zM317.5 24.94L354.2 80H424C437.3 80 448 90.75 448 104C448 117.3 437.3 128 424 128H416V432C416 476.2 380.2 512 336 512H112C67.82 512 32 476.2 32 432V128H24C10.75 128 0 117.3 0 104C0 90.75 10.75 80 24 80H93.82L130.5 24.94C140.9 9.357 158.4 0 177.1 0H270.9C289.6 0 307.1 9.358 317.5 24.94H317.5zM151.5 80H296.5L277.5 51.56C276 49.34 273.5 48 270.9 48H177.1C174.5 48 171.1 49.34 170.5 51.56L151.5 80zM80 432C80 449.7 94.33 464 112 464H336C353.7 464 368 449.7 368 432V128H80V432z"/></svg>
+                    <button id="start" type="button">Start</button>
+                    <div class="periods">
+                        <button id="pomodoroBtn"   class="periodBtn currentPeriod">Pomodoro</button>
+                        <button id="shortBrakeBtn" class="periodBtn">Short Break</button>
+                        <button id="longBrakeBtn"  class="periodBtn">Long Break</button>
+                    </div>
+                </div>
+            
+                <div class="addTask">
+                    <ul id="taskList" class="taskList">
+                        
+                    </ul>
+                    <div id="taskSettings" class="taskSettings hideClass">
+                        <input id="taskNameInput" type="text" placeholder="...task name...">
+                        <input id="taskPomodoroNumberInput" type="number" placeholder="...number of pomodoros...">
+                        <input id="taskDonePomodoroNumberInput" type="number" placeholder="...number of done pomodoros...">
+                        <div class="taskSettingsBtnDiv">
+                            <button id="taskSaveBtn">Save</button>
+                            <button id="taskCancelBtn">Close</button>
+                        </div>
+                        <div class="taskSettingsBtnDiv02">
+                                <svg id="trash" class="taskOptionsIconTrash hideClass"  viewBox="0 0 448 512"><!--! --><path d="M160 400C160 408.8 152.8 416 144 416C135.2 416 128 408.8 128 400V192C128 183.2 135.2 176 144 176C152.8 176 160 183.2 160 192V400zM240 400C240 408.8 232.8 416 224 416C215.2 416 208 408.8 208 400V192C208 183.2 215.2 176 224 176C232.8 176 240 183.2 240 192V400zM320 400C320 408.8 312.8 416 304 416C295.2 416 288 408.8 288 400V192C288 183.2 295.2 176 304 176C312.8 176 320 183.2 320 192V400zM317.5 24.94L354.2 80H424C437.3 80 448 90.75 448 104C448 117.3 437.3 128 424 128H416V432C416 476.2 380.2 512 336 512H112C67.82 512 32 476.2 32 432V128H24C10.75 128 0 117.3 0 104C0 90.75 10.75 80 24 80H93.82L130.5 24.94C140.9 9.357 158.4 0 177.1 0H270.9C289.6 0 307.1 9.358 317.5 24.94H317.5zM151.5 80H296.5L277.5 51.56C276 49.34 273.5 48 270.9 48H177.1C174.5 48 171.1 49.34 170.5 51.56L151.5 80zM80 432C80 449.7 94.33 464 112 464H336C353.7 464 368 449.7 368 432V128H80V432z"/></svg>
+                        </div>
                     </div>
 
 
                     
-                </div>
-                <ul id="taskList" class="taskList">
-                       
-                </ul>
-                <button id="addTaskBtn"> + Add Task</button>
-                <div class="progressBar hideClass">
-                    <div class="currentStatus"></div>
-                </div>
-                </div> <!--container end-->
-            </div> <!-- hero end-->
+                    <button id="addTaskBtn"> + Add Task</button>
+                
+                
+                    <div class="progressBar hideClass">
+                        <div class="currentStatus"></div>
+                    </div>
+                 </div>
 
-        </div> <!-- glass end-->
+                <button id="muiscBtn">
+                    <svg  class="musicIcon"  viewBox="0 0 512 512"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </button>
+                
+                
+                <div id="musicContainer" class="hideClass">
+                    <button id="metalBtn" class="musicTypeSelectBtn">Metal</button>
+                    <button id="studyBtn" class="musicTypeSelectBtn">Study</button>
+                    <button id="chillBtn" class="musicTypeSelectBtn">Chill</button>
+                    <button id="pianoBtn" class="musicTypeSelectBtn">Piano</button>
+                    <div class="infoDiv" data-hover="To listen to the full songs, 
+                    please either create a Spotify account or log in to your existing account
+                     in the current browser.">
+                        <svg id="infoIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                    </div>
+                </div>
+               
+            </div>
+            
+        </div> 
+        
         <audio id="audio"   src="./sounds/alarm.mp3" type="audio/mpeg"></audio>
         <div class="text">
             <div class="textContainer">
@@ -165,7 +188,7 @@
                     <li>Marvel at the fact that how much you can achieve this way.</li>
                 </ul>
                 <h2>What does this app do?</h2>
-                <p>Tomato Task Slayer is a timer developed for you
+                <p>PomodoroPro is a timer developed for you
                     to help focus, study, code more efficiently by using the
                 Pomodoro Technique.</p>
                 
@@ -173,8 +196,9 @@
         </div>
     </main>
     <footer>
-        <p>Made by <a target="_blank" href="http://corvustech.io">CorvusTech.io</a> with ❤️ to help You progress.</p>
+        <p>Made by Daniel Varjaskéri with ❤️ to help You progress.</p>
     </footer>
 </body>
+<script  src="worker"></script>
 <script  src="index.js"></script>
 </html>
