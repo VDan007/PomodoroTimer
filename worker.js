@@ -8,6 +8,7 @@ onmessage = function(e){
   }
   else{
     clearInterval(myTimer);
+    timer = 0;
   }
 }
 

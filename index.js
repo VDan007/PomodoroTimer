@@ -31,8 +31,28 @@ const sound = document.querySelector("#audio");
 sound.autoplay = false;
 
 
+/////////////Worker///////////////////////////
+
+function start(){
+    myWorker.postMessage('start');
+}
+
+function stop(){
+    myWorker.postMessage('terminate');
+}
 
 
+myWorker.onmessage = function(e) {
+    console.log(e.data);
+    secPassed = e.data;
+    moveTimer();
+    
+}
+
+
+
+
+/////////////Worker///////////////////////////
 
 
 const startButton = document.getElementById("start");
@@ -292,13 +312,13 @@ function periodButtonSwitch(){
 
 function startStopTimer(){
     if(areWeCounting){
-        clearInterval(interval);
+        stop();
         startButton.innerText = "Start";
         areWeCounting = false;
         deliberetlyStarted = false;
         
     }else{ 
-     interval = setInterval( moveTimer, 1000);
+     start();
      startButton.innerText = "Pause";
      areWeCounting = true;
      deliberetlyStarted = true;
@@ -391,7 +411,7 @@ function setTimer(period){
 }
 
 function periodShift(period){
-    clearInterval(interval);
+    stop();
     currentPeriod = period;
     areWeCounting = false;
     secPassed = 0;
