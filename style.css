@@ -601,7 +601,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .text h1 {
     font-size:1.6em;
-    margin: 1em 0;
+   
     word-spacing: -0.3em;
 }
 
@@ -629,8 +629,10 @@ input[type="number"]::-webkit-outer-spin-button {
     max-width: 620px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 4em;
     font-family: 'Times New Roman', Times, serif;
+    margin-top: 2em;
     margin-bottom: 2em;
     
 }
