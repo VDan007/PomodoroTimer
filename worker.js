@@ -4,15 +4,19 @@ let myTimer;
 onmessage = function(e){
   console.log(e.data);
   if(e.data == "start"){
-    myTimer = setInterval(moveTimer,1000);
+    myTimer = setInterval(moveTimerWorker,1000);
   }
-  else{
+  else if (e.date="terminate"){
     clearInterval(myTimer);
     timer = 0;
   }
+
+  else{
+    console.log("else post");
+  }
 }
 
-function moveTimer() {
+function moveTimerWorker() {
   timer++;
   postMessage(timer);
 }

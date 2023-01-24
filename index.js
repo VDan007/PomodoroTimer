@@ -42,10 +42,13 @@ function stop(){
 }
 
 
+
+
 myWorker.onmessage = function(e) {
-    console.log(e.data);
+    console.log( "worker posted " + e.data);
     secPassed = e.data;
     moveTimer();
+   // test();
     
 }
 
@@ -330,8 +333,8 @@ function startStopTimer(){
 
 
 function moveTimer (){
-   
-   secPassed++;
+   console.log("move timer invoked");
+  // secPassed++;
    minutesLeft =  Math.floor(  (timeInSec - secPassed) / 60 );
     secondsLeft = timeInSec -(minutesLeft * 60) -secPassed ;
    timeDisplay.innerText = " ";
