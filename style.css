@@ -631,13 +631,14 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
     gap: 1.5em;
     font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 2em;
     
 }
 
 footer{
     background: white;
     text-align: center;
-    padding: 1em 0 2em 0;
+    padding: 1em 0 1em 0;
     font-size: 0.7em;
 }
 
