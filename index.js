@@ -34,10 +34,15 @@ sound.autoplay = false;
 /////////////Worker///////////////////////////
 
 function start(){
-    myWorker.postMessage('start');
+    myWorker.postMessage(["start",secPassed]);
+}
+
+function pause(){
+    myWorker.postMessage('pause');
 }
 
 function stop(){
+    console.log("woorks");
     myWorker.postMessage('terminate');
 }
 
@@ -315,7 +320,13 @@ function periodButtonSwitch(){
 
 function startStopTimer(){
     if(areWeCounting){
-        stop();
+        if(minutesLeft || secondsLeft > 0){
+            console.log("pause");
+            pause();
+        }else{
+            console.log("stoppp");
+            stop();
+        }
         startButton.innerText = "Start";
         areWeCounting = false;
         deliberetlyStarted = false;

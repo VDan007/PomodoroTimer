@@ -3,16 +3,17 @@ let myTimer;
 
 onmessage = function(e){
   console.log(e.data);
-  if(e.data == "start"){
+  if(e.data[0] == "start"){
+    timer = e.data[1];
     myTimer = setInterval(moveTimerWorker,1000);
   }
-  else if (e.date="terminate"){
+  else if (e.data == "terminate"){
     clearInterval(myTimer);
     timer = 0;
   }
 
-  else{
-    console.log("else post");
+  else if(e.data == "pause"){
+    clearInterval(myTimer);
   }
 }
 
