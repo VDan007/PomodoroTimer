@@ -837,9 +837,7 @@ function countPomodoros (){
         }
         progress.style.width = `${percentage}%`;
         
-       // if(pomodoros  == pomodorosDone){
-       //     done = true;
-       // }
+      
         pomodoros == pomodorosDone ? done = true : done = false;
         if(!done){
             putUnfinishedTaskFirst();
