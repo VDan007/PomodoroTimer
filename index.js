@@ -868,7 +868,7 @@ musicTypeSelectBtns.forEach(
 
 function toggleMusicDiv (){
     let frame = musicContainer.querySelector("#spotifyFrame");
-    console.log(frame);
+    
 
     if(musicContainer.classList.contains("hideClass")){
         musicContainer.classList.remove("hideClass");
@@ -889,7 +889,7 @@ function loadMusic(e){
     }
    
     let button =e.target.id;
-    console.log('clicked');
+   
     let frame = document.createElement("iframe");
     frame.setAttribute("id","spotifyFrame");
     frame.setAttribute("loading","lazy");
